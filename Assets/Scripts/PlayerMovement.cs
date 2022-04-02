@@ -12,6 +12,9 @@ public class PlayerMovement : MonoBehaviour
     private Vector2 _moveValue = Vector2.zero;
     private Transform _playerTransform;
     [SerializeField]
+    private Transform _canonTransform;
+    private Camera _camera;
+    [SerializeField]
     private PlayerInput _playerInput;
     private InputAction _movement;
     private InputAction _fire;
@@ -37,10 +40,12 @@ public class PlayerMovement : MonoBehaviour
         _playerInput = new PlayerInput();
         if (_playerTransform == null)
             _playerTransform = GetComponent<Transform>();
+        _camera = Camera.main;
     }
 
     void Update()
     {
+        //Player movement
         _moveValue = _movement.ReadValue<Vector2>();        
         _playerTransform.position += _playerTransform.up * speed * Time.deltaTime * _moveValue.y;
 
@@ -48,6 +53,19 @@ public class PlayerMovement : MonoBehaviour
 
         if (_moveValue.y == 0)
             _playerTransform.position -= new Vector3(0, fallingSpeed * Time.deltaTime, 0);
+        
+        //Canon follows the mouse
+        Vector3 mousePosition = _camera.ScreenToWorldPoint(Mouse.current.position.ReadValue());
+        mousePosition.z = _canonTransform.position.z;
+
+        Vector2 direction = mousePosition - _canonTransform.position;
+        float angle = Mathf.Atan2(direction.y, direction.x) * Mathf.Rad2Deg;
+        _canonTransform.rotation = Quaternion.AngleAxis(angle, Vector3.forward);
+    }
+
+    void LateUpdate()
+    {
+        _canonTransform.localEulerAngles = new Vector3(0, 0, _canonTransform.localEulerAngles.z);
     }
 
     private void Fire(InputAction.CallbackContext context)
