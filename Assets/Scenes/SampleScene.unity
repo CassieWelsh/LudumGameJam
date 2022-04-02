@@ -348,6 +348,46 @@ PrefabInstance:
   m_Modification:
     m_TransformParent: {fileID: 0}
     m_Modifications:
+    - target: {fileID: 1180423852, guid: d19d376ad91d51141a4ea2029a5d5fbf, type: 3}
+      propertyPath: m_LocalScale.x
+      value: 1.74
+      objectReference: {fileID: 0}
+    - target: {fileID: 1180423852, guid: d19d376ad91d51141a4ea2029a5d5fbf, type: 3}
+      propertyPath: m_LocalScale.y
+      value: 1.74
+      objectReference: {fileID: 0}
+    - target: {fileID: 1180423852, guid: d19d376ad91d51141a4ea2029a5d5fbf, type: 3}
+      propertyPath: m_LocalScale.z
+      value: 1.74
+      objectReference: {fileID: 0}
+    - target: {fileID: 1180423852, guid: d19d376ad91d51141a4ea2029a5d5fbf, type: 3}
+      propertyPath: m_LocalPosition.x
+      value: 0.017
+      objectReference: {fileID: 0}
+    - target: {fileID: 1180423852, guid: d19d376ad91d51141a4ea2029a5d5fbf, type: 3}
+      propertyPath: m_LocalPosition.y
+      value: 0.0155
+      objectReference: {fileID: 0}
+    - target: {fileID: 1180423852, guid: d19d376ad91d51141a4ea2029a5d5fbf, type: 3}
+      propertyPath: m_ConstrainProportionsScale
+      value: 1
+      objectReference: {fileID: 0}
+    - target: {fileID: 1180423853, guid: d19d376ad91d51141a4ea2029a5d5fbf, type: 3}
+      propertyPath: m_Sprite
+      value: 
+      objectReference: {fileID: 21300000, guid: 5389cf901048c214bb9d29c8cc6406ba, type: 3}
+    - target: {fileID: 1180423853, guid: d19d376ad91d51141a4ea2029a5d5fbf, type: 3}
+      propertyPath: m_Color.b
+      value: 1
+      objectReference: {fileID: 0}
+    - target: {fileID: 1180423853, guid: d19d376ad91d51141a4ea2029a5d5fbf, type: 3}
+      propertyPath: m_Color.g
+      value: 1
+      objectReference: {fileID: 0}
+    - target: {fileID: 1180423853, guid: d19d376ad91d51141a4ea2029a5d5fbf, type: 3}
+      propertyPath: m_Color.r
+      value: 1
+      objectReference: {fileID: 0}
     - target: {fileID: 7910744003066255114, guid: d19d376ad91d51141a4ea2029a5d5fbf, type: 3}
       propertyPath: m_Name
       value: Player
