@@ -6,6 +6,7 @@ using UnityEngine.InputSystem;
 public class PlayerMovement : MonoBehaviour
 {
     [Header("Set in Inspector")]
+    public int hp = 10;
     public float speed = 5f;
     public float fallingSpeed = 5f;
     public float rotationSpeed = 15f;
@@ -50,13 +51,14 @@ public class PlayerMovement : MonoBehaviour
     void Update()
     {
         //Player movement
-        _moveValue = _movement.ReadValue<Vector2>();        
-        Vector2 _actualMoveValue = Vector2.SmoothDamp(_currentMoveValue, _moveValue, ref _smoothInputVelocity, _smoothInputSpeed);
-        _playerTransform.position += _playerTransform.up * speed * Time.deltaTime * _actualMoveValue.y;
+        this._moveValue = _movement.ReadValue<Vector2>();
+        // Vector2 _moveValue = Vector2.SmoothDamp(_currentMoveValue, this._moveValue, ref _smoothInputVelocity, _smoothInputSpeed);
+        _playerTransform.position += _playerTransform.up * speed * Time.deltaTime * _moveValue.y;
+        print(_moveValue);
 
-        _playerTransform.Rotate(new Vector3(0, 0, -rotationSpeed * _moveValue.x * Time.deltaTime));
+        _playerTransform.Rotate(new Vector3(0, 0, -rotationSpeed * this._moveValue.x * Time.deltaTime));
 
-        if (_moveValue.y == 0)
+        if (this._moveValue.y == 0)
             _playerTransform.position -= new Vector3(0, fallingSpeed * Time.deltaTime, 0);
         
         //Canon follows the mouse

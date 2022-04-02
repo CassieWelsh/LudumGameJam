@@ -268,8 +268,8 @@ MonoBehaviour:
   m_Script: {fileID: 11500000, guid: f656e05b5cae11247b43bf2b9c671b13, type: 3}
   m_Name: 
   m_EditorClassIdentifier: 
-  speed: 800
-  fallingSpeed: 0
-  rotationSpeed: 400
+  speed: 1000
+  fallingSpeed: 2
+  rotationSpeed: 300
   _canonTransform: {fileID: 7764001200982533164}
   _smoothInputSpeed: 0.9
