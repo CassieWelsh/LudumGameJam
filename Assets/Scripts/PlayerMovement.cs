@@ -8,41 +8,46 @@ public class PlayerMovement : MonoBehaviour
     [Header("Set in Inspector")]
     public float speed = 5f;
     public float fallingSpeed = 5f;
-    private Rigidbody2D rgbody;
-    private Vector2 moveDirection = Vector2.zero;
+    public float rotationSpeed = 15f;
+    private Vector2 _moveValue = Vector2.zero;
+    private Transform _playerTransform;
     [SerializeField]
-    private PlayerInput playerInput;
-    private InputAction move;
-    private InputAction fire;
+    private PlayerInput _playerInput;
+    private InputAction _movement;
+    private InputAction _fire;
 
     void OnEnable()
     {
-        move = playerInput.Player.Move;
-        move.Enable();
+        _movement = _playerInput.Player.Move;
+        _movement.Enable();
 
-        fire = playerInput.Player.Fire;
-        fire.Enable();
-        fire.performed += Fire;
+        _fire = _playerInput.Player.Fire;
+        _fire.Enable();
+        _fire.performed += Fire;
     }    
 
     void OnDisable()
     {
-        move.Disable();
-        fire.Disable();
+        _movement.Disable();
+        _fire.Disable();
     }    
 
     void Awake()
     {
-        rgbody = GetComponent<Rigidbody2D>();
-        playerInput = new PlayerInput();
+        _playerInput = new PlayerInput();
+        if (_playerTransform == null)
+            _playerTransform = GetComponent<Transform>();
     }
 
     void Update()
     {
-        moveDirection = move.ReadValue<Vector2>();        
-        rgbody.velocity = new Vector2(moveDirection.x * speed, moveDirection.y * speed);
-        if(moveDirection.x == 0 && moveDirection.y == 0)
-            rgbody.velocity -= new Vector2(0, fallingSpeed);
+        _moveValue = _movement.ReadValue<Vector2>();        
+        _playerTransform.position += _playerTransform.up * speed * Time.deltaTime * _moveValue.y;
+
+        _playerTransform.Rotate(new Vector3(0, 0, -rotationSpeed * _moveValue.x * Time.deltaTime));
+
+        if (_moveValue.y == 0)
+            _playerTransform.position -= new Vector3(0, fallingSpeed * Time.deltaTime, 0);
     }
 
     private void Fire(InputAction.CallbackContext context)
