@@ -10,6 +10,7 @@ public class PlayerMovement : MonoBehaviour
     public float speed = 5f;
     public float fallingSpeed = 5f;
     public float rotationSpeed = 15f;
+    public float projectileSpeed = 5f;
     private Vector2 _moveValue = Vector2.zero;
     private Transform _playerTransform;
     [SerializeField]
@@ -24,6 +25,10 @@ public class PlayerMovement : MonoBehaviour
     [SerializeField]
     private float _smoothInputSpeed;
     private GameObject _engineFlame;
+    [SerializeField]
+    private Transform _shootingPoint;
+    [SerializeField]
+    private GameObject _projectilePrefab;
 
     void OnEnable()
     {
@@ -79,6 +84,16 @@ public class PlayerMovement : MonoBehaviour
 
     private void Fire(InputAction.CallbackContext context)
     {
-        print("Pew");
+        GameObject go = Instantiate(_projectilePrefab);
+        Rigidbody2D goRigid = go.GetComponent<Rigidbody2D>();
+        Vector3 mousePosition = _camera.ScreenToWorldPoint(Mouse.current.position.ReadValue());
+        Vector3 direction = mousePosition - _shootingPoint.position;
+
+        Projectile goProjectile = go.GetComponent<Projectile>();
+        goProjectile.speed = projectileSpeed;
+        goProjectile.direction = direction;
+
+        goRigid.position = _shootingPoint.position;
+        goRigid.velocity = direction * projectileSpeed;
     }
 }
