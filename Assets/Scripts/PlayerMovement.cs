@@ -23,6 +23,7 @@ public class PlayerMovement : MonoBehaviour
     private Vector2 _smoothInputVelocity;
     [SerializeField]
     private float _smoothInputSpeed;
+    private GameObject _engineFlame;
 
     void OnEnable()
     {
@@ -46,6 +47,7 @@ public class PlayerMovement : MonoBehaviour
         if (_playerTransform == null)
             _playerTransform = GetComponent<Transform>();
         _camera = Camera.main;
+        _engineFlame = transform.Find("EngineFlame").gameObject;
     }
 
     void Update()
@@ -67,6 +69,12 @@ public class PlayerMovement : MonoBehaviour
         Vector2 direction = mousePosition - _canonTransform.position;
         float angle = Mathf.Atan2(direction.y, direction.x) * Mathf.Rad2Deg;
         _canonTransform.rotation = Quaternion.AngleAxis(angle, Vector3.forward);
+    
+        if (_moveValue.y != 0)
+            _engineFlame.SetActive(true);
+        else 
+            _engineFlame.SetActive(false);
+
     }
 
     void LateUpdate()
