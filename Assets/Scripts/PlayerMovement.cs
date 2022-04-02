@@ -77,11 +77,6 @@ public class PlayerMovement : MonoBehaviour
 
     }
 
-    void LateUpdate()
-    {
-        _canonTransform.localEulerAngles = new Vector3(0, 0, _canonTransform.localEulerAngles.z);
-    }
-
     private void Fire(InputAction.CallbackContext context)
     {
         print("Pew");

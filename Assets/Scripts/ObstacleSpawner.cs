@@ -31,7 +31,7 @@ public class ObstacleSpawner : MonoBehaviour
         float xMax = bndCheck.camWidth;
         go.GetComponent<BaseObstacle>().fallingSpeed = Random.Range(minFallSpeed, maxFallSpeed);
         Transform spawnPosition = go.GetComponent<Transform>();
-        Vector3 position = new Vector3(Random.Range(xMin, xMax), bndCheck.camHeight + 2f, 0);
+        Vector3 position = new Vector3(Random.Range(xMin, xMax), bndCheck.camHeight + 2f, 0.2f);
         spawnPosition.position = position;
 
         Invoke("SpawnObstacle", spawnRate);
