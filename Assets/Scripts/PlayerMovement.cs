@@ -18,6 +18,10 @@ public class PlayerMovement : MonoBehaviour
     private PlayerInput _playerInput;
     private InputAction _movement;
     private InputAction _fire;
+    private Vector2 _currentMoveValue;
+    private Vector2 _smoothInputVelocity;
+    [SerializeField]
+    private float _smoothInputSpeed;
 
     void OnEnable()
     {
@@ -47,7 +51,8 @@ public class PlayerMovement : MonoBehaviour
     {
         //Player movement
         _moveValue = _movement.ReadValue<Vector2>();        
-        _playerTransform.position += _playerTransform.up * speed * Time.deltaTime * _moveValue.y;
+        Vector2 _actualMoveValue = Vector2.SmoothDamp(_currentMoveValue, _moveValue, ref _smoothInputVelocity, _smoothInputSpeed);
+        _playerTransform.position += _playerTransform.up * speed * Time.deltaTime * _actualMoveValue.y;
 
         _playerTransform.Rotate(new Vector3(0, 0, -rotationSpeed * _moveValue.x * Time.deltaTime));
 
