@@ -21,7 +21,7 @@ public class ObstacleSpawner : MonoBehaviour
         bndCheck = GetComponent<BoundsCheck>();
         Invoke("SpawnObstacle", .25f);
         anchor = Instantiate(new GameObject());
-        anchor.name = "anchor";
+        anchor.name = "Anchor";
     }
 
     private void SpawnObstacle()
