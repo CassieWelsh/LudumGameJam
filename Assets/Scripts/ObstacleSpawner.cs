@@ -7,6 +7,7 @@ public class ObstacleSpawner : MonoBehaviour
     public Sprite[] bigSprites;
     public Sprite[] smallSprites;
     public Sprite[] explosiveSprites;
+    public float spawnBeginningOffset = .75f;
     public float spawnTimeout = .5f;
     public int maxObstaclesInFrame = 200;
     public bool limitObstacles = true;
@@ -21,7 +22,7 @@ public class ObstacleSpawner : MonoBehaviour
     void Start()
     {
         bndCheck = GetComponent<BoundsCheck>();
-        Invoke("SpawnObstacle", .75f);
+        Invoke("SpawnObstacle", spawnBeginningOffset);
         anchor = Instantiate(new GameObject());
         anchor.name = "Anchor";
     }
