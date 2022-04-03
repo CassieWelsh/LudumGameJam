@@ -1,19 +1,20 @@
-using System.Collections;
-using System.Collections.Generic;
 using UnityEngine;
 
 public class Scroll : MonoBehaviour
 {
-    public float speed = 0.5f;
-    private Renderer render;
+    [Range(0f, 1f)]
+    public float scrollSpeed = .5f;
+    private float offset;
+    private Material mat;
+    
     void Start()
     {
-        render = GetComponent<Renderer>();
+        mat = GetComponent<Renderer>().material;
     }
-    
+
     void Update()
     {
-        Vector2 offset = new Vector2(0, Time.time * speed);
-        render.material.mainTextureOffset = offset;
+        offset += (Time.deltaTime * scrollSpeed) / 10f;
+        mat.SetTextureOffset("_MainTex", new Vector2(0,offset));
     }
 }
