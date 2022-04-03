@@ -8,7 +8,7 @@ public class BigObstacle : BaseObstacle
     [SerializeField]
     private GameObject[] pieces; 
     
-    protected override void DestroyObject(GameObject go)
+    protected override void DestroyObject(GameObject go, GameObject projectile)
     {
         int pieceCount = Random.Range(0, pieceCountRange + 1);
         for (int i = 0; i < pieceCount; i++) 
@@ -19,6 +19,7 @@ public class BigObstacle : BaseObstacle
             piece.transform.position = (Vector2) go.transform.position + location;
         }
         
-        Destroy(go);
+        Destroy(projectile);
+        Destroy(this.gameObject);
     }
 }
