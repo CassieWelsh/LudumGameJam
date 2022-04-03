@@ -349,6 +349,46 @@ PrefabInstance:
       propertyPath: spawnRate
       value: 0.1
       objectReference: {fileID: 0}
+    - target: {fileID: 1887417706362152304, guid: e546d4d12e9d97741a039da666da1450, type: 3}
+      propertyPath: bigSprites.Array.size
+      value: 8
+      objectReference: {fileID: 0}
+    - target: {fileID: 1887417706362152304, guid: e546d4d12e9d97741a039da666da1450, type: 3}
+      propertyPath: smallSprites.Array.size
+      value: 8
+      objectReference: {fileID: 0}
+    - target: {fileID: 1887417706362152304, guid: e546d4d12e9d97741a039da666da1450, type: 3}
+      propertyPath: bigSprites.Array.data[4]
+      value: 
+      objectReference: {fileID: -1473515652, guid: f0941710ae2f9bc418162e3d4013ea90, type: 3}
+    - target: {fileID: 1887417706362152304, guid: e546d4d12e9d97741a039da666da1450, type: 3}
+      propertyPath: bigSprites.Array.data[5]
+      value: 
+      objectReference: {fileID: -1473515652, guid: f0941710ae2f9bc418162e3d4013ea90, type: 3}
+    - target: {fileID: 1887417706362152304, guid: e546d4d12e9d97741a039da666da1450, type: 3}
+      propertyPath: bigSprites.Array.data[6]
+      value: 
+      objectReference: {fileID: -1473515652, guid: f0941710ae2f9bc418162e3d4013ea90, type: 3}
+    - target: {fileID: 1887417706362152304, guid: e546d4d12e9d97741a039da666da1450, type: 3}
+      propertyPath: bigSprites.Array.data[7]
+      value: 
+      objectReference: {fileID: -1473515652, guid: f0941710ae2f9bc418162e3d4013ea90, type: 3}
+    - target: {fileID: 1887417706362152304, guid: e546d4d12e9d97741a039da666da1450, type: 3}
+      propertyPath: smallSprites.Array.data[4]
+      value: 
+      objectReference: {fileID: 1767307397, guid: f0941710ae2f9bc418162e3d4013ea90, type: 3}
+    - target: {fileID: 1887417706362152304, guid: e546d4d12e9d97741a039da666da1450, type: 3}
+      propertyPath: smallSprites.Array.data[5]
+      value: 
+      objectReference: {fileID: 1767307397, guid: f0941710ae2f9bc418162e3d4013ea90, type: 3}
+    - target: {fileID: 1887417706362152304, guid: e546d4d12e9d97741a039da666da1450, type: 3}
+      propertyPath: smallSprites.Array.data[6]
+      value: 
+      objectReference: {fileID: 1767307397, guid: f0941710ae2f9bc418162e3d4013ea90, type: 3}
+    - target: {fileID: 1887417706362152304, guid: e546d4d12e9d97741a039da666da1450, type: 3}
+      propertyPath: smallSprites.Array.data[7]
+      value: 
+      objectReference: {fileID: 1767307397, guid: f0941710ae2f9bc418162e3d4013ea90, type: 3}
     - target: {fileID: 1887417706362152306, guid: e546d4d12e9d97741a039da666da1450, type: 3}
       propertyPath: m_RootOrder
       value: 0
