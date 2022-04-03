@@ -14,15 +14,20 @@ public class ObstacleSpawner : MonoBehaviour
     [SerializeField]
     private GameObject obstaclePrefab;
 
+    private GameObject anchor;
+
     void Start()
     {
         bndCheck = GetComponent<BoundsCheck>();
         Invoke("SpawnObstacle", .25f);
+        anchor = Instantiate(new GameObject());
+        anchor.name = "anchor";
     }
 
     private void SpawnObstacle()
     {
-        GameObject go = Instantiate<GameObject>(obstaclePrefab);
+        GameObject go = Instantiate<GameObject>(obstaclePrefab); 
+        go.transform.parent = anchor.transform;
 
         int ndx = Random.Range(0, bigSprites.Length);
         go.GetComponent<SpriteRenderer>().sprite = bigSprites[ndx];
