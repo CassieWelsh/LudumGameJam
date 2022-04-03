@@ -7,6 +7,7 @@ public class Bonus : MonoBehaviour
     public int healUp = 2;    
     public float velocity = 2f;
     public float timeout = 2f;
+    public float fallingSpeed = 5f;
     private Rigidbody2D rigid;
     private BoundsCheck bndCheck;
     private float rotationSide;
@@ -24,9 +25,11 @@ public class Bonus : MonoBehaviour
 
     void Update()
     {
-        Vector2 direction = (Vector2) (transform.position + Random.onUnitSphere).normalized;
-        rigid.velocity = direction.normalized * velocity * Time.deltaTime;
+        // Vector2 direction = (Vector2) (transform.position + Random.onUnitSphere).normalized;
+        // rigid.velocity = direction.normalized * velocity * Time.deltaTime;
         transform.Rotate(0, 0, rotationSide * rotationDegrees * Time.deltaTime);
+
+        rigid.velocity -= new Vector2(0, fallingSpeed) * Time.deltaTime;
 
         if (Time.time > curTime)
             Destroy(this.gameObject);

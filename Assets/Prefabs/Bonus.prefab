@@ -149,6 +149,8 @@ MonoBehaviour:
   m_EditorClassIdentifier: 
   healUp: 2
   velocity: 50
+  timeout: 2
+  fallingSpeed: 1
   rotationDegrees: 20
 --- !u!114 &7180333715820019819
 MonoBehaviour:
@@ -163,7 +165,7 @@ MonoBehaviour:
   m_Name: 
   m_EditorClassIdentifier: 
   radius: -1
-  keepOnScreen: 0
+  keepOnScreen: 1
   isOnScreen: 1
   camWidth: 0
   camHeight: 0

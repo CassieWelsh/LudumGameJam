@@ -9,11 +9,6 @@ public class Kryakozyabra : MonoBehaviour
     public float amplitude = 1f;
     public float speed = 1f;
 
-    void Start()
-    {
-        
-    }
-
     void Update()
     {
         Vector2 currentFrameHeight = transform.position;
@@ -42,6 +37,8 @@ public class Kryakozyabra : MonoBehaviour
         playerRigid.velocity += throwDirection * throwForce;
 
         var playerGO = player.gameObject.GetComponent<PlayerMovement>();
-        playerGO.hp -= damage;
+        if (Time.time > playerGO.invisibileTill)
+            playerGO.hp -= damage;
+            playerGO.invisibileTill = Time.time + playerGO.damageSplashTime;
     }
 }

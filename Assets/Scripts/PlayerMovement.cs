@@ -11,7 +11,12 @@ public class PlayerMovement : MonoBehaviour
     public float fallingVelocity = 5f;
     public float rotationVelocity = 15f;
     public float projectileVelocity = 5f;
-    public float coolDown = .5f;
+    public float weaponCoolDown = .5f;
+    public float damageSplashTime = 2f; 
+    [HideInInspector]
+    public float invisibileTill = 0;
+    [SerializeField]
+    private SpriteRenderer[] _spriteRenderer;
     public Vector2 fallingLimit = new Vector2(-5, -5);
     public Vector2 accelerationLimit = new Vector2(5, 5); 
     private float lastShotTime = 0f;
@@ -112,11 +117,17 @@ public class PlayerMovement : MonoBehaviour
         else 
             _engineFlame.SetActive(false);
 
+        if (Time.time < invisibileTill)    
+            foreach (var mat in _spriteRenderer)
+                mat.material.color = Color.red;
+        else
+            foreach (var mat in _spriteRenderer)
+                mat.material.color = Color.white;
     }
 
     private void Fire(InputAction.CallbackContext context)
     {
-        if (Time.time - lastShotTime < coolDown)        
+        if (Time.time - lastShotTime < weaponCoolDown)        
             return;
 
         GameObject go = Instantiate(_projectilePrefab);

@@ -158,7 +158,7 @@ SpriteRenderer:
   m_RenderingLayerMask: 1
   m_RendererPriority: 0
   m_Materials:
-  - {fileID: 10754, guid: 0000000000000000f000000000000000, type: 0}
+  - {fileID: 2100000, guid: b67e7e4ea17ef844f880a2d0f761e693, type: 2}
   m_StaticBatchInfo:
     firstSubMesh: 0
     subMeshCount: 0
@@ -428,7 +428,13 @@ MonoBehaviour:
   fallingVelocity: 5
   rotationVelocity: 200
   projectileVelocity: 10
-  coolDown: 0.5
+  weaponCoolDown: 0.5
+  damageSplashTime: 1
+  invisibileTill: 0
+  _spriteRenderer:
+  - {fileID: 973804346}
+  - {fileID: 995516254}
+  - {fileID: 1180423853}
   fallingLimit: {x: -4, y: -10}
   accelerationLimit: {x: 6, y: 6}
   _canonTransform: {fileID: 7764001200982533164}

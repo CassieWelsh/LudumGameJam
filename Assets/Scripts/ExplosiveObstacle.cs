@@ -8,8 +8,6 @@ public class ExplosiveObstacle : BaseObstacle
     public float force;
     public LayerMask layerToHit;
 
-
-
     public override void DestroyObject(GameObject obj, GameObject projectile)
     {
         Explode();
@@ -29,6 +27,7 @@ public class ExplosiveObstacle : BaseObstacle
 
         foreach (Collider2D obj in objects)
         {
+            if (obj.tag == "Bonus") continue;
             Vector2 direction = obj.transform.position - transform.position;
             obj.GetComponent<Rigidbody2D>().velocity += direction * force;
         }
