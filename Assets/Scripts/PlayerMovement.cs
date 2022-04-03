@@ -11,6 +11,8 @@ public class PlayerMovement : MonoBehaviour
     public float fallingSpeed = 5f;
     public float rotationSpeed = 15f;
     public float projectileSpeed = 5f;
+    public float coolDown = .5f;
+    private float lastShotTime = 0f;
     private Vector2 _moveValue = Vector2.zero;
     private Transform _playerTransform;
     [SerializeField]
@@ -84,16 +86,17 @@ public class PlayerMovement : MonoBehaviour
 
     private void Fire(InputAction.CallbackContext context)
     {
+        if (Time.time - lastShotTime < coolDown)        
+            return;
+
         GameObject go = Instantiate(_projectilePrefab);
         Rigidbody2D goRigid = go.GetComponent<Rigidbody2D>();
         Vector3 mousePosition = _camera.ScreenToWorldPoint(Mouse.current.position.ReadValue());
-        Vector3 direction = mousePosition - _shootingPoint.position;
-
-        Projectile goProjectile = go.GetComponent<Projectile>();
-        goProjectile.speed = projectileSpeed;
-        goProjectile.direction = direction;
+        Vector2 direction = (Vector2) (mousePosition - _shootingPoint.position);
 
         goRigid.position = _shootingPoint.position;
-        goRigid.velocity = direction * projectileSpeed;
+        goRigid.velocity = direction.normalized * projectileSpeed;
+
+        lastShotTime = Time.time;
     }
 }
