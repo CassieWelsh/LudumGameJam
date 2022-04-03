@@ -2,7 +2,7 @@ using UnityEngine;
 
 public class Scroll : MonoBehaviour
 {
-    [Range(0f, 1f)]
+    // [Range(0f, 1f)]
     public float scrollSpeed = .5f;
     private float offset;
     private Material mat;
