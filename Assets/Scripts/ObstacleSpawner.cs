@@ -7,6 +7,8 @@ public class ObstacleSpawner : MonoBehaviour
     public Sprite[] bigSprites;
     public Sprite[] smallSprites;
     public float spawnTimeout = .5f;
+    public int maxObstaclesInFrame = 200;
+    public bool limitObstacles = true;
     public float minFallSpeed = 2f;
     public float maxFallSpeed = 10f;
     private BoundsCheck bndCheck;
@@ -25,6 +27,12 @@ public class ObstacleSpawner : MonoBehaviour
 
     private void SpawnObstacle()
     {
+        if (limitObstacles && anchor.transform.childCount >= maxObstaclesInFrame)
+        {
+            Invoke("SpawnObstacle", spawnTimeout);
+            return;
+        }
+
         int index = Random.Range(0, obstaclePrefabs.Length);
         GameObject go = Instantiate<GameObject>(obstaclePrefabs[index]); 
         go.transform.parent = anchor.transform;

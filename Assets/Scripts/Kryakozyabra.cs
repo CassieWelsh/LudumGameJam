@@ -40,5 +40,8 @@ public class Kryakozyabra : MonoBehaviour
         Vector2 throwDirection = ((Vector2) player.transform.position - lastContact.point).normalized;
         Rigidbody2D playerRigid = player.gameObject.GetComponent<Rigidbody2D>();
         playerRigid.velocity += throwDirection * throwForce;
+
+        var playerGO = player.gameObject.GetComponent<PlayerMovement>();
+        playerGO.hp -= damage;
     }
 }

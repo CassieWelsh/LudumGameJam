@@ -129,9 +129,4 @@ public class PlayerMovement : MonoBehaviour
 
         lastShotTime = Time.time;
     }
-
-    void OnTriggerEnter2D(Collider2D collider)
-    {
-        print("Das");
-    }
 }
