@@ -1,5 +1,5 @@
 fileFormatVersion: 2
-guid: 34d9a5a1cc47631489167945eed488ba
+guid: b4ca86f6b4b320b4192eeb2756627a6c
 TextureImporter:
   internalIDToNameTable: []
   externalObjects: {}
@@ -36,8 +36,8 @@ TextureImporter:
     filterMode: 0
     aniso: 1
     mipBias: 0
-    wrapU: 1
-    wrapV: 1
+    wrapU: 0
+    wrapV: 0
     wrapW: 0
   nPOTScale: 0
   lightmap: 0
@@ -116,127 +116,211 @@ TextureImporter:
     serializedVersion: 2
     sprites:
     - serializedVersion: 2
-      name: Projectile animation_0
+      name: Projectile animation 1_0
       rect:
         serializedVersion: 2
         x: 0
         y: 0
-        width: 8
+        width: 6
         height: 6
-      alignment: 0
-      pivot: {x: 0, y: 0}
+      alignment: 7
+      pivot: {x: 0.5, y: 0}
       border: {x: 0, y: 0, z: 0, w: 0}
       outline: []
       physicsShape: []
       tessellationDetail: 0
       bones: []
-      spriteID: 53791498da66fb4419942f01f676779d
-      internalID: 1991860662
+      spriteID: de22ccd700801bb48995e6be53c0e08c
+      internalID: 68479932
       vertices: []
       indices: 
       edges: []
       weights: []
     - serializedVersion: 2
-      name: Projectile animation_1
+      name: Projectile animation 1_1
       rect:
         serializedVersion: 2
-        x: 8
+        x: 7
         y: 0
-        width: 8
+        width: 6
         height: 6
-      alignment: 0
-      pivot: {x: 0, y: 0}
+      alignment: 7
+      pivot: {x: 0.5, y: 0}
       border: {x: 0, y: 0, z: 0, w: 0}
       outline: []
       physicsShape: []
       tessellationDetail: 0
       bones: []
-      spriteID: 12c9b3dcaae6d3747a120d67e1dc170c
-      internalID: -58219310
+      spriteID: 7dcc481394ac8cb4cab23f6d57dd11ef
+      internalID: 1377415019
       vertices: []
       indices: 
       edges: []
       weights: []
     - serializedVersion: 2
-      name: Projectile animation_2
+      name: Projectile animation 1_2
       rect:
         serializedVersion: 2
-        x: 16
+        x: 14
         y: 0
-        width: 8
+        width: 6
         height: 6
-      alignment: 0
-      pivot: {x: 0, y: 0}
+      alignment: 7
+      pivot: {x: 0.5, y: 0}
       border: {x: 0, y: 0, z: 0, w: 0}
       outline: []
       physicsShape: []
       tessellationDetail: 0
       bones: []
-      spriteID: 12abeb4d80e2abd478213ecdd4b0e317
-      internalID: 1932361187
+      spriteID: 9449578f8b27a3649a80da9e7ef6746e
+      internalID: 1663235815
       vertices: []
       indices: 
       edges: []
       weights: []
     - serializedVersion: 2
-      name: Projectile animation_3
+      name: Projectile animation 1_3
       rect:
         serializedVersion: 2
-        x: 24
+        x: 21
         y: 0
-        width: 8
+        width: 6
         height: 6
-      alignment: 0
-      pivot: {x: 0, y: 0}
+      alignment: 7
+      pivot: {x: 0.5, y: 0}
       border: {x: 0, y: 0, z: 0, w: 0}
       outline: []
       physicsShape: []
       tessellationDetail: 0
       bones: []
-      spriteID: ee5f24d6b4a61e34bb016aa59fcfd0e0
-      internalID: 384396643
+      spriteID: ad027a3e9e5f8c047a8309f937f99d6d
+      internalID: 1098644683
       vertices: []
       indices: 
       edges: []
       weights: []
     - serializedVersion: 2
-      name: Projectile animation_4
+      name: Projectile animation 1_4
       rect:
         serializedVersion: 2
-        x: 32
+        x: 28
         y: 0
-        width: 8
+        width: 6
         height: 6
-      alignment: 0
-      pivot: {x: 0, y: 0}
+      alignment: 7
+      pivot: {x: 0.5, y: 0}
       border: {x: 0, y: 0, z: 0, w: 0}
       outline: []
       physicsShape: []
       tessellationDetail: 0
       bones: []
-      spriteID: 65d35855dd05774428579682bd62b1f7
-      internalID: -1327889094
+      spriteID: 150d1314bb8bff94ea11de204665bbe2
+      internalID: 1380533028
       vertices: []
       indices: 
       edges: []
       weights: []
     - serializedVersion: 2
-      name: Projectile animation_5
+      name: Projectile animation 1_5
       rect:
         serializedVersion: 2
-        x: 40
+        x: 35
         y: 0
-        width: 8
+        width: 6
         height: 6
-      alignment: 0
-      pivot: {x: 0, y: 0}
+      alignment: 7
+      pivot: {x: 0.5, y: 0}
       border: {x: 0, y: 0, z: 0, w: 0}
       outline: []
       physicsShape: []
       tessellationDetail: 0
       bones: []
-      spriteID: e24e5578c398c7f4eb78be0756cc0140
-      internalID: -1251457463
+      spriteID: c946ee7a8544f3648ad29b635b6a8f44
+      internalID: -1459935063
+      vertices: []
+      indices: 
+      edges: []
+      weights: []
+    - serializedVersion: 2
+      name: Projectile animation 1_6
+      rect:
+        serializedVersion: 2
+        x: 42
+        y: 0
+        width: 6
+        height: 6
+      alignment: 7
+      pivot: {x: 0.5, y: 0}
+      border: {x: 0, y: 0, z: 0, w: 0}
+      outline: []
+      physicsShape: []
+      tessellationDetail: 0
+      bones: []
+      spriteID: bbb6b2ba1fbcaf4469d3b5a8cba37986
+      internalID: -1416651748
+      vertices: []
+      indices: 
+      edges: []
+      weights: []
+    - serializedVersion: 2
+      name: Projectile animation 1_7
+      rect:
+        serializedVersion: 2
+        x: 49
+        y: 0
+        width: 6
+        height: 6
+      alignment: 7
+      pivot: {x: 0.5, y: 0}
+      border: {x: 0, y: 0, z: 0, w: 0}
+      outline: []
+      physicsShape: []
+      tessellationDetail: 0
+      bones: []
+      spriteID: 0e8552634a45a5d41b2bd524d614c126
+      internalID: 569770604
+      vertices: []
+      indices: 
+      edges: []
+      weights: []
+    - serializedVersion: 2
+      name: Projectile animation 1_8
+      rect:
+        serializedVersion: 2
+        x: 56
+        y: 0
+        width: 6
+        height: 6
+      alignment: 7
+      pivot: {x: 0.5, y: 0}
+      border: {x: 0, y: 0, z: 0, w: 0}
+      outline: []
+      physicsShape: []
+      tessellationDetail: 0
+      bones: []
+      spriteID: 4cf841b402319464dab145272c892857
+      internalID: 1162764311
+      vertices: []
+      indices: 
+      edges: []
+      weights: []
+    - serializedVersion: 2
+      name: Projectile animation 1_9
+      rect:
+        serializedVersion: 2
+        x: 63
+        y: 0
+        width: 6
+        height: 6
+      alignment: 7
+      pivot: {x: 0.5, y: 0}
+      border: {x: 0, y: 0, z: 0, w: 0}
+      outline: []
+      physicsShape: []
+      tessellationDetail: 0
+      bones: []
+      spriteID: 005fe267f6f75cf4b90fbdd79f30cbc0
+      internalID: 1008731297
       vertices: []
       indices: 
       edges: []
@@ -244,7 +328,7 @@ TextureImporter:
     outline: []
     physicsShape: []
     bones: []
-    spriteID: 8345056a9b95f0746989288c5684b4bc
+    spriteID: db247c938ba7e764482c5b16bf76c2cb
     internalID: 0
     vertices: []
     indices: 
@@ -252,12 +336,16 @@ TextureImporter:
     weights: []
     secondaryTextures: []
     nameFileIdTable:
-      Projectile animation_3: 384396643
-      Projectile animation_5: -1251457463
-      Projectile animation_0: 1991860662
-      Projectile animation_2: 1932361187
-      Projectile animation_1: -58219310
-      Projectile animation_4: -1327889094
+      Projectile animation 1_6: -1416651748
+      Projectile animation 1_9: 1008731297
+      Projectile animation 1_5: -1459935063
+      Projectile animation 1_4: 1380533028
+      Projectile animation 1_0: 68479932
+      Projectile animation 1_1: 1377415019
+      Projectile animation 1_8: 1162764311
+      Projectile animation 1_3: 1098644683
+      Projectile animation 1_7: 569770604
+      Projectile animation 1_2: 1663235815
   spritePackingTag: 
   pSDRemoveMatte: 0
   pSDShowRemoveMatteOption: 0
