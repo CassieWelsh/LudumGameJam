@@ -134,6 +134,26 @@ PrefabInstance:
       propertyPath: m_Name
       value: Projectile
       objectReference: {fileID: 0}
+    - target: {fileID: 387353261841139514, guid: 7e88802b9e84f154ea1535c366158637, type: 3}
+      propertyPath: m_Sprite
+      value: 
+      objectReference: {fileID: 21300000, guid: 7a98dafda2fe8f04daf77449fbd30e92, type: 3}
+    - target: {fileID: 387353261841139514, guid: 7e88802b9e84f154ea1535c366158637, type: 3}
+      propertyPath: m_Color.b
+      value: 1
+      objectReference: {fileID: 0}
+    - target: {fileID: 387353261841139514, guid: 7e88802b9e84f154ea1535c366158637, type: 3}
+      propertyPath: m_Color.g
+      value: 1
+      objectReference: {fileID: 0}
+    - target: {fileID: 387353261841139514, guid: 7e88802b9e84f154ea1535c366158637, type: 3}
+      propertyPath: m_Color.r
+      value: 1
+      objectReference: {fileID: 0}
+    - target: {fileID: 387353261841139514, guid: 7e88802b9e84f154ea1535c366158637, type: 3}
+      propertyPath: m_Enabled
+      value: 1
+      objectReference: {fileID: 0}
     - target: {fileID: 387353261841139515, guid: 7e88802b9e84f154ea1535c366158637, type: 3}
       propertyPath: m_RootOrder
       value: 4
@@ -512,3 +532,28 @@ PrefabInstance:
       objectReference: {fileID: 0}
     m_RemovedComponents: []
   m_SourcePrefab: {fileID: 100100000, guid: d19d376ad91d51141a4ea2029a5d5fbf, type: 3}
+--- !u!1 &1350113844 stripped
+GameObject:
+  m_CorrespondingSourceObject: {fileID: 387353261841139512, guid: 7e88802b9e84f154ea1535c366158637, type: 3}
+  m_PrefabInstance: {fileID: 153961221}
+  m_PrefabAsset: {fileID: 0}
+--- !u!95 &1350113845
+Animator:
+  serializedVersion: 4
+  m_ObjectHideFlags: 0
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInstance: {fileID: 0}
+  m_PrefabAsset: {fileID: 0}
+  m_GameObject: {fileID: 1350113844}
+  m_Enabled: 1
+  m_Avatar: {fileID: 0}
+  m_Controller: {fileID: 9100000, guid: cf05f56a9f0d43945820d2056d1a2d3f, type: 2}
+  m_CullingMode: 0
+  m_UpdateMode: 0
+  m_ApplyRootMotion: 0
+  m_LinearVelocityBlending: 0
+  m_StabilizeFeet: 0
+  m_WarningMessage: 
+  m_HasTransformHierarchy: 1
+  m_AllowConstantClipSamplingOptimization: 1
+  m_KeepAnimatorControllerStateOnDisable: 0
