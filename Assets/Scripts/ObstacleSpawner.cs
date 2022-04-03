@@ -12,7 +12,7 @@ public class ObstacleSpawner : MonoBehaviour
     public float maxFallSpeed = 10f;
     private BoundsCheck bndCheck;
     [SerializeField]
-    private GameObject obstaclePrefab;
+    private GameObject[] obstaclePrefabs;
 
     private GameObject anchor;
 
@@ -26,11 +26,21 @@ public class ObstacleSpawner : MonoBehaviour
 
     private void SpawnObstacle()
     {
-        GameObject go = Instantiate<GameObject>(obstaclePrefab); 
+        int index = Random.Range(0, obstaclePrefabs.Length);
+        GameObject go = Instantiate<GameObject>(obstaclePrefabs[index]); 
         go.transform.parent = anchor.transform;
 
-        int ndx = Random.Range(0, bigSprites.Length);
-        go.GetComponent<SpriteRenderer>().sprite = bigSprites[ndx];
+        switch (go.tag)
+        {
+            case "BigAsteroid":
+                int ndxBig = Random.Range(0, bigSprites.Length);
+                go.GetComponent<SpriteRenderer>().sprite = bigSprites[ndxBig];
+                break;
+            case "SmallAsteroid":
+                int ndxSmall = Random.Range(0, smallSprites.Length);
+                go.GetComponent<SpriteRenderer>().sprite = smallSprites[ndxSmall];
+                break;
+        }
 
         float xMin = -bndCheck.camWidth;
         float xMax = bndCheck.camWidth;

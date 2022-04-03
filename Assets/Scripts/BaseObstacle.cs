@@ -38,8 +38,13 @@ public class BaseObstacle: MonoBehaviour
 
             case "Projectile":
                 Destroy(go);
-                Destroy(this.gameObject);
+                DestroyObject(this.gameObject);
                 break;
         }
+    }
+
+    protected virtual void DestroyObject(GameObject go)
+    {
+        Destroy(go);
     }
 }

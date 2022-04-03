@@ -90,19 +90,34 @@ MonoBehaviour:
   m_Name: 
   m_EditorClassIdentifier: 
   bigSprites:
-  - {fileID: 209035925, guid: f0941710ae2f9bc418162e3d4013ea90, type: 3}
-  - {fileID: 1446878731, guid: f0941710ae2f9bc418162e3d4013ea90, type: 3}
-  - {fileID: 1765143901, guid: f0941710ae2f9bc418162e3d4013ea90, type: 3}
-  - {fileID: -1473515652, guid: f0941710ae2f9bc418162e3d4013ea90, type: 3}
+  - {fileID: 1263783245, guid: b303cc1a778b3ef448ceb25f246ee9fc, type: 3}
+  - {fileID: 1366186133, guid: b303cc1a778b3ef448ceb25f246ee9fc, type: 3}
+  - {fileID: 1274623328, guid: b303cc1a778b3ef448ceb25f246ee9fc, type: 3}
+  - {fileID: -924702296, guid: b303cc1a778b3ef448ceb25f246ee9fc, type: 3}
+  - {fileID: 1425473376, guid: b303cc1a778b3ef448ceb25f246ee9fc, type: 3}
+  - {fileID: -712333985, guid: b303cc1a778b3ef448ceb25f246ee9fc, type: 3}
+  - {fileID: -1785282797, guid: b303cc1a778b3ef448ceb25f246ee9fc, type: 3}
+  - {fileID: 1858155562, guid: b303cc1a778b3ef448ceb25f246ee9fc, type: 3}
   smallSprites:
-  - {fileID: 855596274, guid: f0941710ae2f9bc418162e3d4013ea90, type: 3}
-  - {fileID: -759209071, guid: f0941710ae2f9bc418162e3d4013ea90, type: 3}
-  - {fileID: -1577715504, guid: f0941710ae2f9bc418162e3d4013ea90, type: 3}
-  - {fileID: 1767307397, guid: f0941710ae2f9bc418162e3d4013ea90, type: 3}
-  spawnRate: 1000
+  - {fileID: 1357582083, guid: b303cc1a778b3ef448ceb25f246ee9fc, type: 3}
+  - {fileID: -1223249296, guid: b303cc1a778b3ef448ceb25f246ee9fc, type: 3}
+  - {fileID: -2086094403, guid: b303cc1a778b3ef448ceb25f246ee9fc, type: 3}
+  - {fileID: 562526786, guid: b303cc1a778b3ef448ceb25f246ee9fc, type: 3}
+  - {fileID: 870703522, guid: b303cc1a778b3ef448ceb25f246ee9fc, type: 3}
+  - {fileID: 573135310, guid: b303cc1a778b3ef448ceb25f246ee9fc, type: 3}
+  - {fileID: 1654161414, guid: b303cc1a778b3ef448ceb25f246ee9fc, type: 3}
+  - {fileID: -45480084, guid: b303cc1a778b3ef448ceb25f246ee9fc, type: 3}
+  spawnRate: 0.1
   minFallSpeed: 2
   maxFallSpeed: 7
-  obstaclePrefab: {fileID: 5667707202355784034, guid: 532051e48774b194f93f292e71116cbf, type: 3}
+  obstaclePrefabs:
+  - {fileID: 5667707202355784034, guid: 532051e48774b194f93f292e71116cbf, type: 3}
+  - {fileID: 5667707202355784034, guid: 532051e48774b194f93f292e71116cbf, type: 3}
+  - {fileID: 5667707202355784034, guid: 532051e48774b194f93f292e71116cbf, type: 3}
+  - {fileID: 5667707202355784034, guid: 532051e48774b194f93f292e71116cbf, type: 3}
+  - {fileID: 5667707202355784034, guid: 532051e48774b194f93f292e71116cbf, type: 3}
+  - {fileID: 5667707202355784034, guid: 532051e48774b194f93f292e71116cbf, type: 3}
+  - {fileID: 5667707202355784034, guid: a2cb9e365b7bdfd4baab3204eac01e53, type: 3}
 --- !u!114 &1887417706362152305
 MonoBehaviour:
   m_ObjectHideFlags: 0

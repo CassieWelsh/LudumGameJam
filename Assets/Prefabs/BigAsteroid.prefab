@@ -10,13 +10,13 @@ GameObject:
   m_Component:
   - component: {fileID: 5667707202355784060}
   - component: {fileID: 5667707202355784062}
-  - component: {fileID: 5667707202355784057}
   - component: {fileID: 6710735097915639123}
+  - component: {fileID: 7896101832624910856}
   - component: {fileID: 801098568}
   - component: {fileID: 2208596504448377646}
   m_Layer: 8
-  m_Name: Asteroid
-  m_TagString: SmallAsteroid
+  m_Name: BigAsteroid
+  m_TagString: BigAsteroid
   m_Icon: {fileID: 0}
   m_NavMeshLayer: 0
   m_StaticEditorFlags: 0
@@ -77,7 +77,7 @@ SpriteRenderer:
   m_SortingLayerID: 0
   m_SortingLayer: 0
   m_SortingOrder: 0
-  m_Sprite: {fileID: 562526786, guid: b303cc1a778b3ef448ceb25f246ee9fc, type: 3}
+  m_Sprite: {fileID: -1785282797, guid: b303cc1a778b3ef448ceb25f246ee9fc, type: 3}
   m_Color: {r: 0.8018868, g: 0.8018868, b: 0.8018868, a: 1}
   m_FlipX: 0
   m_FlipY: 0
@@ -88,20 +88,6 @@ SpriteRenderer:
   m_WasSpriteAssigned: 1
   m_MaskInteraction: 0
   m_SpriteSortPoint: 0
---- !u!114 &5667707202355784057
-MonoBehaviour:
-  m_ObjectHideFlags: 0
-  m_CorrespondingSourceObject: {fileID: 0}
-  m_PrefabInstance: {fileID: 0}
-  m_PrefabAsset: {fileID: 0}
-  m_GameObject: {fileID: 5667707202355784034}
-  m_Enabled: 1
-  m_EditorHideFlags: 0
-  m_Script: {fileID: 11500000, guid: 7e624c46d87ac474da59c3dc18bb8c6e, type: 3}
-  m_Name: 
-  m_EditorClassIdentifier: 
-  fallingSpeed: 2
-  rotationDegrees: 50
 --- !u!114 &6710735097915639123
 MonoBehaviour:
   m_ObjectHideFlags: 0
@@ -123,6 +109,23 @@ MonoBehaviour:
   offLeft: 0
   offUp: 0
   offDown: 0
+--- !u!114 &7896101832624910856
+MonoBehaviour:
+  m_ObjectHideFlags: 0
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInstance: {fileID: 0}
+  m_PrefabAsset: {fileID: 0}
+  m_GameObject: {fileID: 5667707202355784034}
+  m_Enabled: 1
+  m_EditorHideFlags: 0
+  m_Script: {fileID: 11500000, guid: 3ee6ab354377e544e8de69192cba3793, type: 3}
+  m_Name: 
+  m_EditorClassIdentifier: 
+  fallingSpeed: 5
+  rotationDegrees: 50
+  pieceCountRange: 2
+  pieces:
+  - {fileID: 5667707202355784034, guid: 532051e48774b194f93f292e71116cbf, type: 3}
 --- !u!50 &801098568
 Rigidbody2D:
   serializedVersion: 4
@@ -161,7 +164,7 @@ PolygonCollider2D:
   m_SpriteTilingProperty:
     border: {x: 0, y: 0, z: 0, w: 0}
     pivot: {x: 0.5, y: 0.5}
-    oldSize: {x: 0.34375, y: 0.28125}
+    oldSize: {x: 0.78125, y: 0.65625}
     newSize: {x: 1, y: 1}
     adaptiveTilingThreshold: 0.5
     drawMode: 0
@@ -169,9 +172,8 @@ PolygonCollider2D:
   m_AutoTiling: 0
   m_Points:
     m_Paths:
-    - - {x: -0.234375, y: 0.171875}
-      - {x: -0.234375, y: -0.140625}
-      - {x: -0.171875, y: -0.171875}
-      - {x: 0.234375, y: -0.171875}
-      - {x: 0.234375, y: 0.046875}
-      - {x: 0.109375, y: 0.171875}
+    - - {x: -0.375, y: 0.34375}
+      - {x: -0.375, y: -0.28125}
+      - {x: -0.34375, y: -0.34375}
+      - {x: 0.375, y: -0.34375}
+      - {x: 0.375, y: 0.34375}
