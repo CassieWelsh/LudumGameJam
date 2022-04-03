@@ -25,7 +25,7 @@ public class ExplosiveObstacle : BaseObstacle
 
     private void Explode()
     {
-        Collider2D[] objects = Physics2D.OverlapCircleAll(transform.position, fieldOfImpact, layerToHit);
+        Collider2D[] objects = Physics2D.OverlapCircleAll(transform.position, fieldOfImpact);
 
         foreach (Collider2D obj in objects)
         {
@@ -42,11 +42,5 @@ public class ExplosiveObstacle : BaseObstacle
         {
             DestroyObject(this.gameObject);
         }
-    }
-
-    void OnDrawGismosOnSelected()
-    {
-        Gizmos.color = Color.red;
-        Gizmos.DrawWireSphere(transform.position, fieldOfImpact);
     }
 }

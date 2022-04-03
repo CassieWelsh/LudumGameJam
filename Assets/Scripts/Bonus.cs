@@ -6,17 +6,20 @@ public class Bonus : MonoBehaviour
 {
     public int healUp = 2;    
     public float velocity = 2f;
+    public float timeout = 2f;
     private Rigidbody2D rigid;
     private BoundsCheck bndCheck;
     private float rotationSide;
     [SerializeField]
     private float rotationDegrees = 20;
+    private float curTime;
 
     void Start()
     {
         rotationSide = Random.Range(0f, .5f) <= .25 ? 1 : -1;
         rigid = GetComponent<Rigidbody2D>();
         bndCheck = GetComponent<BoundsCheck>();
+        curTime = Time.time + timeout;
     }    
 
     void Update()
@@ -25,7 +28,10 @@ public class Bonus : MonoBehaviour
         rigid.velocity = direction.normalized * velocity * Time.deltaTime;
         transform.Rotate(0, 0, rotationSide * rotationDegrees * Time.deltaTime);
 
-        if(!bndCheck.isOnScreen)
+        if (Time.time > curTime)
+            Destroy(this.gameObject);
+
+        if (!bndCheck.isOnScreen)
             Destroy(this.gameObject);
     }
 

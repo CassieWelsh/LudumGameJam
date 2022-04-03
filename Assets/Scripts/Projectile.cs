@@ -32,12 +32,10 @@ public class Projectile : MonoBehaviour
                 obst.DropBonus();
                 obst.DestroyObject(go, this.gameObject);
                 break;
-
-            case "Bonus":
-                Destroy(go);
-                Destroy(this.gameObject);
+            case "ExplosiveAsteroid":
+                var obst1 = go.GetComponent<ExplosiveObstacle>();
+                obst1.DestroyObject(go, this.gameObject);
                 break;
         }
-
     }
 }
