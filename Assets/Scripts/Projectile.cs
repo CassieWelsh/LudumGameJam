@@ -4,17 +4,16 @@ using UnityEngine;
 
 public class Projectile : MonoBehaviour
 {
-    public float speed;
-    public Vector3 direction;
-    private Rigidbody2D rigid;
+    private BoundsCheck bndCheck;
 
     void Start()
     {
-        rigid = GetComponent<Rigidbody2D>();
+        bndCheck = GetComponent<BoundsCheck>();
     }
 
     void Update()
     {
-        rigid.velocity += (Vector2) direction.normalized * speed;
+        if (!bndCheck.isOnScreen)
+            Destroy(this.gameObject);
     }
 }
