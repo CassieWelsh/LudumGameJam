@@ -107,7 +107,9 @@ MonoBehaviour:
   - {fileID: 573135310, guid: b303cc1a778b3ef448ceb25f246ee9fc, type: 3}
   - {fileID: 1654161414, guid: b303cc1a778b3ef448ceb25f246ee9fc, type: 3}
   - {fileID: -45480084, guid: b303cc1a778b3ef448ceb25f246ee9fc, type: 3}
-  spawnTimeout: 0.5
+  spawnTimeout: 0.1
+  maxObstaclesInFrame: 75
+  limitObstacles: 1
   minFallSpeed: 2
   maxFallSpeed: 7
   obstaclePrefabs:

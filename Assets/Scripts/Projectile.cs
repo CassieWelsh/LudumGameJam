@@ -16,4 +16,28 @@ public class Projectile : MonoBehaviour
         if (!bndCheck.isOnScreen)
             Destroy(this.gameObject);
     }
+
+    void OnCollisionEnter2D(Collision2D collider)
+    {
+        GameObject go = collider.gameObject;
+        switch (go.tag)
+        {
+            case "Player":
+                print("Collided with player");
+                break;
+
+            case "SmallAsteroid":
+            case "BigAsteroid":
+                var obst = go.GetComponent<BaseObstacle>();
+                obst.DropBonus();
+                obst.DestroyObject(go, this.gameObject);
+                break;
+
+            case "Bonus":
+                Destroy(go);
+                Destroy(this.gameObject);
+                break;
+        }
+
+    }
 }

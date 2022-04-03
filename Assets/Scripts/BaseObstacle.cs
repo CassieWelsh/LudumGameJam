@@ -6,9 +6,12 @@ public class BaseObstacle: MonoBehaviour
 {
     public float fallingSpeed = 5f;    
     public float rotationDegrees = 50f;
+    public float bonusDropChance = .5f;
     private int rotationSide;
     private BoundsCheck bndCheck;
     private Rigidbody2D rigid;
+    [SerializeField]
+    private GameObject bonusPrefab;
 
     void Start()
     {
@@ -27,23 +30,17 @@ public class BaseObstacle: MonoBehaviour
             Destroy(gameObject);
     }
 
-    void OnCollisionEnter2D(Collision2D collider)
-    {
-        GameObject go = collider.gameObject;
-        switch (go.tag)
-        {
-            case "Player":
-                print("Collided with player");
-                break;
-
-            case "Projectile":
-                DestroyObject(this.gameObject, go);
-                break;
-        }
-    }
-
-    protected virtual void DestroyObject(GameObject obj, GameObject projectile)
+    public virtual void DestroyObject(GameObject obj, GameObject projectile)
     {
         Destroy(obj);
+    }
+
+    public void DropBonus()
+    {
+        if (Random.Range(0f, 1f) <= bonusDropChance)
+        {
+            GameObject go = Instantiate(bonusPrefab);
+            go.transform.position = transform.position; 
+        }
     }
 }

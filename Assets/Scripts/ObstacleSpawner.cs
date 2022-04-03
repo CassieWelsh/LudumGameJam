@@ -6,6 +6,7 @@ public class ObstacleSpawner : MonoBehaviour
 {
     public Sprite[] bigSprites;
     public Sprite[] smallSprites;
+    public Sprite[] explosiveSprites;
     public float spawnTimeout = .5f;
     public int maxObstaclesInFrame = 200;
     public bool limitObstacles = true;
@@ -20,7 +21,7 @@ public class ObstacleSpawner : MonoBehaviour
     void Start()
     {
         bndCheck = GetComponent<BoundsCheck>();
-        Invoke("SpawnObstacle", .25f);
+        Invoke("SpawnObstacle", .75f);
         anchor = Instantiate(new GameObject());
         anchor.name = "Anchor";
     }
@@ -43,9 +44,15 @@ public class ObstacleSpawner : MonoBehaviour
                 int ndxBig = Random.Range(0, bigSprites.Length);
                 go.GetComponent<SpriteRenderer>().sprite = bigSprites[ndxBig];
                 break;
+            
             case "SmallAsteroid":
                 int ndxSmall = Random.Range(0, smallSprites.Length);
                 go.GetComponent<SpriteRenderer>().sprite = smallSprites[ndxSmall];
+                break;
+
+            case "ExplosiveAsteroid":
+                int ndxExplosive = Random.Range(0, explosiveSprites.Length);
+                go.GetComponent<SpriteRenderer>().sprite = explosiveSprites[ndxExplosive];
                 break;
         }
 

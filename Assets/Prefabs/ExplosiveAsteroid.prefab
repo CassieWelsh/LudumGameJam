@@ -10,12 +10,12 @@ GameObject:
   m_Component:
   - component: {fileID: 5667707202355784060}
   - component: {fileID: 5667707202355784062}
-  - component: {fileID: 5667707202355784057}
   - component: {fileID: 6710735097915639123}
   - component: {fileID: 801098568}
   - component: {fileID: 2208596504448377646}
+  - component: {fileID: 5791240959530882542}
   m_Layer: 8
-  m_Name: Asteroid
+  m_Name: ExplosiveAsteroid
   m_TagString: SmallAsteroid
   m_Icon: {fileID: 0}
   m_NavMeshLayer: 0
@@ -88,22 +88,6 @@ SpriteRenderer:
   m_WasSpriteAssigned: 1
   m_MaskInteraction: 0
   m_SpriteSortPoint: 0
---- !u!114 &5667707202355784057
-MonoBehaviour:
-  m_ObjectHideFlags: 0
-  m_CorrespondingSourceObject: {fileID: 0}
-  m_PrefabInstance: {fileID: 0}
-  m_PrefabAsset: {fileID: 0}
-  m_GameObject: {fileID: 5667707202355784034}
-  m_Enabled: 1
-  m_EditorHideFlags: 0
-  m_Script: {fileID: 11500000, guid: 7e624c46d87ac474da59c3dc18bb8c6e, type: 3}
-  m_Name: 
-  m_EditorClassIdentifier: 
-  fallingSpeed: 2
-  rotationDegrees: 50
-  bonusDropChance: 0.25
-  bonusPrefab: {fileID: 7180333715820019797, guid: d8d00be86e1867f43ae706bd56a4598f, type: 3}
 --- !u!114 &6710735097915639123
 MonoBehaviour:
   m_ObjectHideFlags: 0
@@ -177,3 +161,24 @@ PolygonCollider2D:
       - {x: 0.234375, y: -0.171875}
       - {x: 0.234375, y: 0.046875}
       - {x: 0.109375, y: 0.171875}
+--- !u!114 &5791240959530882542
+MonoBehaviour:
+  m_ObjectHideFlags: 0
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInstance: {fileID: 0}
+  m_PrefabAsset: {fileID: 0}
+  m_GameObject: {fileID: 5667707202355784034}
+  m_Enabled: 1
+  m_EditorHideFlags: 0
+  m_Script: {fileID: 11500000, guid: 13408c3892da5934d9253ab3d6dd838e, type: 3}
+  m_Name: 
+  m_EditorClassIdentifier: 
+  fallingSpeed: 5
+  rotationDegrees: 50
+  bonusDropChance: 0
+  bonusPrefab: {fileID: 7180333715820019797, guid: d8d00be86e1867f43ae706bd56a4598f, type: 3}
+  fieldOfImpact: 100
+  force: 50
+  layerToHit:
+    serializedVersion: 2
+    m_Bits: 64
