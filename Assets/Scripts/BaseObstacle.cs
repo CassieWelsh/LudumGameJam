@@ -27,8 +27,19 @@ public class BaseObstacle: MonoBehaviour
             Destroy(gameObject);
     }
 
-    void OnTriggerEnter(Collider collider)
+    void OnCollisionEnter2D(Collision2D collider)
     {
-        print(collider.name);
+        GameObject go = collider.gameObject;
+        switch (go.tag)
+        {
+            case "Player":
+                print("Collided with player");
+                break;
+
+            case "Projectile":
+                Destroy(go);
+                Destroy(this.gameObject);
+                break;
+        }
     }
 }
