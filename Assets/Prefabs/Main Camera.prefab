@@ -107,12 +107,10 @@ MonoBehaviour:
   - {fileID: 573135310, guid: b303cc1a778b3ef448ceb25f246ee9fc, type: 3}
   - {fileID: 1654161414, guid: b303cc1a778b3ef448ceb25f246ee9fc, type: 3}
   - {fileID: -45480084, guid: b303cc1a778b3ef448ceb25f246ee9fc, type: 3}
-  spawnRate: 0.1
+  spawnTimeout: 0.5
   minFallSpeed: 2
   maxFallSpeed: 7
   obstaclePrefabs:
-  - {fileID: 5667707202355784034, guid: 532051e48774b194f93f292e71116cbf, type: 3}
-  - {fileID: 5667707202355784034, guid: 532051e48774b194f93f292e71116cbf, type: 3}
   - {fileID: 5667707202355784034, guid: 532051e48774b194f93f292e71116cbf, type: 3}
   - {fileID: 5667707202355784034, guid: 532051e48774b194f93f292e71116cbf, type: 3}
   - {fileID: 5667707202355784034, guid: 532051e48774b194f93f292e71116cbf, type: 3}

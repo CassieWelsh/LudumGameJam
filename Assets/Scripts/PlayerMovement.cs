@@ -7,10 +7,10 @@ public class PlayerMovement : MonoBehaviour
 {
     [Header("Set in Inspector")]
     public int hp = 10;
-    public float speed = 5f;
-    public float fallingSpeed = 5f;
-    public float rotationSpeed = 15f;
-    public float projectileSpeed = 5f;
+    public float velocity = 5f;
+    public float fallingVelocity = 5f;
+    public float rotationVelocity = 15f;
+    public float projectileVelocity = 5f;
     public float coolDown = .5f;
     public Vector2 fallingLimit = new Vector2(-5, -5);
     public Vector2 accelerationLimit = new Vector2(5, 5); 
@@ -67,7 +67,7 @@ public class PlayerMovement : MonoBehaviour
         _moveValue = _movement.ReadValue<Vector2>();        
         Vector2 _actualMoveValue = Vector2.SmoothDamp(_currentMoveValue, _moveValue, ref _smoothInputVelocity, _smoothInputSpeed);
         // _playerTransform.position += _playerTransform.up * speed * Time.deltaTime * _actualMoveValue.y;
-        _rigid.velocity += (Vector2) _playerTransform.up * speed * Time.deltaTime * _moveValue.y;
+        _rigid.velocity += (Vector2) _playerTransform.up * velocity * Time.deltaTime * _moveValue.y;
 
         if (_rigid.velocity.y <= fallingLimit.y)
         {
@@ -93,11 +93,11 @@ public class PlayerMovement : MonoBehaviour
             _rigid.velocity = limit;
         }
 
-        _playerTransform.Rotate(new Vector3(0, 0, -rotationSpeed * _moveValue.x * Time.deltaTime));
+        _playerTransform.Rotate(new Vector3(0, 0, -rotationVelocity * _moveValue.x * Time.deltaTime));
 
         if (_moveValue.y == 0)
             // _playerTransform.position -= new Vector3(0, fallingSpeed * Time.deltaTime, 0);
-            _rigid.velocity -= new Vector2(0, fallingSpeed) * Time.deltaTime;
+            _rigid.velocity -= new Vector2(0, fallingVelocity) * Time.deltaTime;
         
         //Canon follows the mouse
         Vector3 mousePosition = _camera.ScreenToWorldPoint(Mouse.current.position.ReadValue());
@@ -125,7 +125,7 @@ public class PlayerMovement : MonoBehaviour
         Vector2 direction = (Vector2) (mousePosition - _shootingPoint.position);
 
         goRigid.position = _shootingPoint.position;
-        goRigid.velocity = direction.normalized * projectileSpeed;
+        goRigid.velocity = direction.normalized * projectileVelocity;
 
         lastShotTime = Time.time;
     }

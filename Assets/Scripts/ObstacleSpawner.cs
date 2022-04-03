@@ -4,10 +4,9 @@ using UnityEngine;
 
 public class ObstacleSpawner : MonoBehaviour
 {
-    public static ObstacleSpawner S;
     public Sprite[] bigSprites;
     public Sprite[] smallSprites;
-    public float spawnRate = .5f;
+    public float spawnTimeout = .5f;
     public float minFallSpeed = 2f;
     public float maxFallSpeed = 10f;
     private BoundsCheck bndCheck;
@@ -49,6 +48,6 @@ public class ObstacleSpawner : MonoBehaviour
         Vector3 position = new Vector3(Random.Range(xMin, xMax), bndCheck.camHeight + 2f, 0.2f);
         spawnPosition.position = position;
 
-        Invoke("SpawnObstacle", spawnRate);
+        Invoke("SpawnObstacle", spawnTimeout);
     }
 }
