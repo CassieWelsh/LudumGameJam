@@ -11,7 +11,7 @@ GameObject:
   - component: {fileID: 973804348}
   - component: {fileID: 973804347}
   - component: {fileID: 973804346}
-  m_Layer: 0
+  m_Layer: 6
   m_Name: EngineFlame
   m_TagString: Untagged
   m_Icon: {fileID: 0}
@@ -115,7 +115,7 @@ GameObject:
   m_Component:
   - component: {fileID: 995516253}
   - component: {fileID: 995516254}
-  m_Layer: 0
+  m_Layer: 6
   m_Name: ShipSprite
   m_TagString: Untagged
   m_Icon: {fileID: 0}
@@ -199,7 +199,7 @@ GameObject:
   m_Component:
   - component: {fileID: 1180423852}
   - component: {fileID: 1180423853}
-  m_Layer: 0
+  m_Layer: 6
   m_Name: Canon
   m_TagString: Untagged
   m_Icon: {fileID: 0}
@@ -282,7 +282,7 @@ GameObject:
   serializedVersion: 6
   m_Component:
   - component: {fileID: 1556960858}
-  m_Layer: 0
+  m_Layer: 6
   m_Name: ShootingPoint
   m_TagString: Untagged
   m_Icon: {fileID: 0}
@@ -313,7 +313,7 @@ GameObject:
   serializedVersion: 6
   m_Component:
   - component: {fileID: 7764001200982533164}
-  m_Layer: 0
+  m_Layer: 6
   m_Name: CanonAnchor
   m_TagString: Untagged
   m_Icon: {fileID: 0}
@@ -351,7 +351,7 @@ GameObject:
   - component: {fileID: 27904808}
   - component: {fileID: 27904809}
   - component: {fileID: 386154376}
-  m_Layer: 0
+  m_Layer: 6
   m_Name: Player
   m_TagString: Player
   m_Icon: {fileID: 0}
