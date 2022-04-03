@@ -149,7 +149,7 @@ MonoBehaviour:
   m_EditorClassIdentifier: 
   healUp: 2
   velocity: 50
-  timeout: 2
+  timeout: 6
   fallingSpeed: 1
   rotationDegrees: 20
 --- !u!114 &7180333715820019819
