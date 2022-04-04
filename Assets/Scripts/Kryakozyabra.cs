@@ -19,7 +19,6 @@ public class Kryakozyabra : MonoBehaviour
     void OnCollisionEnter2D(Collision2D collision)
     {
         GameObject go = collision.gameObject;
-        print(go.tag);
 
         switch (go.tag)
         {
@@ -38,7 +37,10 @@ public class Kryakozyabra : MonoBehaviour
 
         var playerGO = player.gameObject.GetComponent<PlayerMovement>();
         if (Time.time > playerGO.invisibileTill)
+        {
             playerGO.hp -= damage;
             playerGO.invisibileTill = Time.time + playerGO.damageSplashTime;
+        }
+        print(playerGO.invisibileTill - Time.time);
     }
 }
