@@ -100,7 +100,7 @@ MonoBehaviour:
   m_Script: {fileID: 11500000, guid: 43ee36c058e874342b141f75cbef6c92, type: 3}
   m_Name: 
   m_EditorClassIdentifier: 
-  damage: 2
+  damage: 1
   throwForce: 100
   amplitude: 0.001
   speed: 9

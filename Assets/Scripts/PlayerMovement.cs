@@ -2,17 +2,20 @@ using System.Collections;
 using System.Collections.Generic;
 using UnityEngine;
 using UnityEngine.InputSystem;
+using TMPro;
 
 public class PlayerMovement : MonoBehaviour
 {
     [Header("Set in Inspector")]
-    public int hp = 10;
+    public int maxHp = 10;
+    public int hp;
     public float velocity = 5f;
     public float fallingVelocity = 5f;
     public float rotationVelocity = 15f;
     public float projectileVelocity = 5f;
     public float weaponCoolDown = .5f;
     public float damageSplashTime = 2f; 
+    public float scoreIncreaseIntensity = .5f;
     [HideInInspector]
     public float invisibileTill = 0;
     [SerializeField]
@@ -39,6 +42,10 @@ public class PlayerMovement : MonoBehaviour
     [SerializeField]
     private GameObject _projectilePrefab;
     private Rigidbody2D _rigid;
+    [SerializeField]
+    private TMP_Text hpText, scoreText;
+    [HideInInspector]
+    public int score = 0;
 
     void OnEnable()
     {
@@ -64,6 +71,11 @@ public class PlayerMovement : MonoBehaviour
         _camera = Camera.main;
         _engineFlame = transform.Find("EngineFlame").gameObject;
         _rigid = GetComponent<Rigidbody2D>();
+        Invoke("ScoreIncrease", scoreIncreaseIntensity);
+        hp = maxHp;
+
+        if (!PlayerPrefs.HasKey("BestScore"))
+            PlayerPrefs.SetInt("BestScore", 0);            
     }
 
     void Update()
@@ -123,6 +135,23 @@ public class PlayerMovement : MonoBehaviour
         else
             foreach (var mat in _spriteRenderer)
                 mat.material.color = Color.white;
+        
+        UpdateText();
+    }
+
+    void ScoreIncrease()
+    {
+        score += 100;
+        
+        Invoke("ScoreIncrease", scoreIncreaseIntensity);
+    }    
+
+    private void UpdateText()
+    {
+        string hpString = $"HP\n{hp}/{maxHp}";
+        string scoreString = $"Score\n{score}";
+        hpText.text = hpString;
+        scoreText.text = scoreString;
     }
 
     private void Fire(InputAction.CallbackContext context)
