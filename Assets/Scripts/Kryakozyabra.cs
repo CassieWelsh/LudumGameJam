@@ -41,6 +41,5 @@ public class Kryakozyabra : MonoBehaviour
             playerGO.hp -= damage;
             playerGO.invisibileTill = Time.time + playerGO.damageSplashTime;
         }
-        print(playerGO.invisibileTill - Time.time);
     }
 }
