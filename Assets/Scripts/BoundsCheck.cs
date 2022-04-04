@@ -1,6 +1,7 @@
 using System.Collections;
 using System.Collections.Generic;
 using UnityEngine;
+using System;
 
 public class BoundsCheck : MonoBehaviour 
 {
@@ -12,14 +13,19 @@ public class BoundsCheck : MonoBehaviour
     public bool isOnScreen = true; 
     public float camWidth;
     public float camHeight;
+    public static GameObject resolutionPoint;
 
     [HideInInspector]
     public bool offRight, offLeft, offUp, offDown;
 
     void Awake()
     {
-        camHeight = Camera.main.orthographicSize; 
-        camWidth = camHeight * Camera.main.aspect;
+        if (resolutionPoint == null)
+            resolutionPoint = GameObject.Find("ResolutionPoint");
+        camHeight = (float) Math.Round(resolutionPoint.transform.position.y, 1);
+        camWidth = camHeight * 3f / 4f; 
+        // camHeight = Camera.main.orthographicSize; 
+        // camWidth = camHeight * Camera.main.aspect;
     }
 
     void LateUpdate() 

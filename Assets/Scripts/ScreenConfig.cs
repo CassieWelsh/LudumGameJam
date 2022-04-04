@@ -1,31 +1,22 @@
-using System.Collections;
-using System.Collections.Generic;
 using UnityEngine;
 
 public class ScreenConfig : MonoBehaviour
 {
-    private float _lastWidth;
-    private float _lastHeight;    
+    [Tooltip("Aspect Ratio to use for game.  If Vector2.zero, the default aspect ratio will be used.")]
+    [SerializeField]
+    private Vector2 aspectRatio = Vector2.zero;
 
-    void Start()
+    [Tooltip("Whether or not full screen will be used")]
+    [SerializeField]
+    private bool fullScreen = false;
+
+    private void Awake()
     {
-        // Screen.SetResolution(1080, 1920, true);
-        _lastWidth = Screen.width;
-        _lastHeight = Screen.height;
-    }
-
-    void Update()
-    {
-        if(_lastWidth != Screen.width)
+        if(aspectRatio != Vector2.zero)
         {
-            Screen.SetResolution(Screen.width, (int) (Screen.width * 4f / 3f), true);
+            float x = Screen.height * (aspectRatio.x / aspectRatio.y);
+            float y = Screen.height;
+            Screen.SetResolution((int) x, (int) y, fullScreen);
         }
-        else if(_lastHeight != Screen.height)
-        {
-            Screen.SetResolution((int) (Screen.height * (3f / 4f)), Screen.height, true);
-        }
-
-        _lastWidth = Screen.width;
-        _lastHeight = Screen.height;
     }
 }

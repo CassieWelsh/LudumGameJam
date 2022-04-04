@@ -85,7 +85,7 @@ SpriteRenderer:
   m_Size: {x: 1, y: 1}
   m_AdaptiveModeThreshold: 0.5
   m_SpriteTileMode: 0
-  m_WasSpriteAssigned: 1
+  m_WasSpriteAssigned: 0
   m_MaskInteraction: 0
   m_SpriteSortPoint: 0
 --- !u!114 &6710735097915639123
@@ -125,7 +125,7 @@ MonoBehaviour:
   rotationDegrees: 50
   bonusDropChance: 0
   bonusPrefab: {fileID: 7180333715820019797, guid: d8d00be86e1867f43ae706bd56a4598f, type: 3}
-  pieceCountRange: 2
+  pieceCountRange: 4
   pieces:
   - {fileID: 5667707202355784034, guid: 532051e48774b194f93f292e71116cbf, type: 3}
 --- !u!50 &801098568

@@ -9,7 +9,7 @@ public class BaseObstacle: MonoBehaviour
     public float bonusDropChance = .5f;
     private int rotationSide;
     private BoundsCheck bndCheck;
-    private Rigidbody2D rigid;
+    protected Rigidbody2D rigid;
     [SerializeField]
     private GameObject bonusPrefab;
 

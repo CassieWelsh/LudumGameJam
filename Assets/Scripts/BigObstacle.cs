@@ -7,7 +7,7 @@ public class BigObstacle : BaseObstacle
     public int pieceCountRange = 3;
     [SerializeField]
     private GameObject[] pieces; 
-    
+
     public override void DestroyObject(GameObject go, GameObject projectile)
     {
         int pieceCount = Random.Range(0, pieceCountRange + 1);
@@ -17,6 +17,7 @@ public class BigObstacle : BaseObstacle
             int indx = Random.Range(0, pieces.Length);
             GameObject piece = Instantiate(pieces[indx]);
             piece.transform.position = (Vector2) go.transform.position + location;
+            piece.GetComponent<Rigidbody2D>().velocity = -rigid.velocity;
         }
         
         Destroy(projectile);

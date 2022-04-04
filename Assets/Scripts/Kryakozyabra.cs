@@ -12,7 +12,7 @@ public class Kryakozyabra : MonoBehaviour
     void Update()
     {
         Vector2 currentFrameHeight = transform.position;
-        currentFrameHeight.y += amplitude * speed * Mathf.Sin(Mathf.PI * Time.time);
+        currentFrameHeight.y += amplitude * speed * Mathf.Cos(Mathf.PI * Time.time);
         transform.position = currentFrameHeight;
     }
 
