@@ -426,8 +426,8 @@ MonoBehaviour:
   m_EditorClassIdentifier: 
   maxHp: 10
   hp: 10
-  velocity: 25
-  fallingVelocity: 5
+  velocity: 20
+  fallingVelocity: 6
   rotationVelocity: 200
   projectileVelocity: 10
   weaponCoolDown: 0.5

@@ -29,7 +29,7 @@ public class ExplosiveObstacle : BaseObstacle
         {
             if (obj.tag == "Bonus") continue;
             Vector2 direction = obj.transform.position - transform.position;
-            obj.GetComponent<Rigidbody2D>().velocity += direction * force;
+            obj.GetComponent<Rigidbody2D>().velocity = direction * force;
         }
     }
 
