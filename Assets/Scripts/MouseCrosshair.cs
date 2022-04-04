@@ -15,6 +15,8 @@ public class MouseCrosshair : MonoBehaviour
 
     void Update()
     {
-        transform.position = (Vector2) _cam.ScreenToWorldPoint(Mouse.current.position.ReadValue());    
+        Vector3 nextPosition = _cam.ScreenToWorldPoint(Mouse.current.position.ReadValue());
+        nextPosition.z = -9;
+        transform.position = nextPosition;    
     }
 }
