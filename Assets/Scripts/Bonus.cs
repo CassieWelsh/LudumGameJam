@@ -46,7 +46,7 @@ public class Bonus : MonoBehaviour
         {
             case "Player":
                 var player = go.GetComponent<PlayerMovement>();
-                if (player.hp <= player.maxHp)
+                if (player.hp < player.maxHp)
                 {
                     player.hp += healUp;
                 }
