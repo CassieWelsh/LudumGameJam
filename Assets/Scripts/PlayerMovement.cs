@@ -32,10 +32,6 @@ public class PlayerMovement : MonoBehaviour
     private PlayerInput _playerInput;
     private InputAction _movement;
     private InputAction _fire;
-    private Vector2 _currentMoveValue;
-    private Vector2 _smoothInputVelocity;
-    [SerializeField]
-    private float _smoothInputSpeed;
     private GameObject _engineFlame;
     [SerializeField]
     private Transform _shootingPoint;
@@ -80,12 +76,33 @@ public class PlayerMovement : MonoBehaviour
 
     void Update()
     {
-        //Player movement
-        _moveValue = _movement.ReadValue<Vector2>();        
-        Vector2 _actualMoveValue = Vector2.SmoothDamp(_currentMoveValue, _moveValue, ref _smoothInputVelocity, _smoothInputSpeed);
-        // _playerTransform.position += _playerTransform.up * speed * Time.deltaTime * _actualMoveValue.y;
-        _rigid.velocity += (Vector2) _playerTransform.up * velocity * Time.deltaTime * _moveValue.y;
+        Move();
+        LimitAcceleration();
+        ApplyFallVelocity();
 
+        TwistCanon();
+        CheckDamagedState();
+    }
+
+    private void Move()
+    {
+        _moveValue = _movement.ReadValue<Vector2>();        
+        _rigid.velocity += (Vector2) _playerTransform.up * (velocity * Time.deltaTime * _moveValue.y);
+        _playerTransform.Rotate(new Vector3(0, 0, -rotationVelocity * _moveValue.x * Time.deltaTime));
+
+        Ignite();
+    }
+
+    private void Ignite()
+    {
+        if (_moveValue.y != 0)
+            _engineFlame.SetActive(true);
+        else 
+            _engineFlame.SetActive(false);
+    }
+
+    private void LimitAcceleration()
+    {
         if (_rigid.velocity.y <= fallingLimit.y)
         {
             Vector2 limit = new Vector2(_rigid.velocity.x, fallingLimit.y); 
@@ -109,40 +126,39 @@ public class PlayerMovement : MonoBehaviour
             Vector2 limit = new Vector2(accelerationLimit.x, _rigid.velocity.y); 
             _rigid.velocity = limit;
         }
+    }
 
-        _playerTransform.Rotate(new Vector3(0, 0, -rotationVelocity * _moveValue.x * Time.deltaTime));
-
+    private void ApplyFallVelocity()
+    {
         if (_moveValue.y == 0)
             // _playerTransform.position -= new Vector3(0, fallingSpeed * Time.deltaTime, 0);
             _rigid.velocity -= new Vector2(0, fallingVelocity) * Time.deltaTime;
-        
-        //Canon follows the mouse
+    }
+
+    private void TwistCanon()
+    {
         Vector3 mousePosition = _camera.ScreenToWorldPoint(Mouse.current.position.ReadValue());
         mousePosition.z = _canonTransform.position.z;
 
         Vector2 direction = mousePosition - _canonTransform.position;
         float angle = Mathf.Atan2(direction.y, direction.x) * Mathf.Rad2Deg;
         _canonTransform.rotation = Quaternion.AngleAxis(angle, Vector3.forward);
+    }
     
-        if (_moveValue.y != 0)
-            _engineFlame.SetActive(true);
-        else 
-            _engineFlame.SetActive(false);
-
+    private void CheckDamagedState()
+    {
         if (Time.time < invisibileTill)    
             foreach (var mat in _spriteRenderer)
                 mat.material.color = Color.red;
         else
             foreach (var mat in _spriteRenderer)
                 mat.material.color = Color.white;
-        
-        UpdateText();
     }
 
-    void ScoreIncrease()
+    private void ScoreIncrease()
     {
         score += 100;
-        
+        UpdateText();
         Invoke("ScoreIncrease", scoreIncreaseIntensity);
     }    
 

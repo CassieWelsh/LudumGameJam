@@ -5,6 +5,7 @@ using UnityEngine.InputSystem;
 
 public class MouseCrosshair : MonoBehaviour
 {
+    public float coordZ = -9f;
     private Camera _cam;     
 
     void Start()
@@ -16,7 +17,7 @@ public class MouseCrosshair : MonoBehaviour
     void Update()
     {
         Vector3 nextPosition = _cam.ScreenToWorldPoint(Mouse.current.position.ReadValue());
-        nextPosition.z = -9;
+        nextPosition.z = coordZ;
         transform.position = nextPosition;    
     }
 }
