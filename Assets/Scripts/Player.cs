@@ -4,7 +4,7 @@ using UnityEngine;
 using UnityEngine.InputSystem;
 using TMPro;
 
-public class PlayerMovement : MonoBehaviour
+public class Player : MonoBehaviour
 {
     [Header("Set in Inspector")]
     public int maxHp = 10;
@@ -72,6 +72,7 @@ public class PlayerMovement : MonoBehaviour
 
         if (!PlayerPrefs.HasKey("BestScore"))
             PlayerPrefs.SetInt("BestScore", 0);            
+        UpdateText();
     }
 
     void Update()

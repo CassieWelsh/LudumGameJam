@@ -45,7 +45,7 @@ public class Bonus : MonoBehaviour
         switch (go.tag)
         {
             case "Player":
-                var player = go.GetComponent<PlayerMovement>();
+                var player = go.GetComponent<Player>();
                 // if (player.hp < player.maxHp)
                 // {
                 //     player.hp += healUp;

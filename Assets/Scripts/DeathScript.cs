@@ -6,7 +6,7 @@ using TMPro;
 public class DeathScript : MonoBehaviour
 {
     public TMP_Text deathText, bestScoreText;
-    private PlayerMovement player;    
+    private Player player;    
     private MouseCrosshair crosshair;
     [SerializeField]
     private GameObject stats;
@@ -15,7 +15,7 @@ public class DeathScript : MonoBehaviour
 
     void Start()
     {
-        player = GetComponent<PlayerMovement>();
+        player = GetComponent<Player>();
         crosshair = GameObject.Find("Crosshair").GetComponent<MouseCrosshair>();
         stats.SetActive(true);
         deathScreen.SetActive(false);

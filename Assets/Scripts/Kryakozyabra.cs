@@ -35,7 +35,7 @@ public class Kryakozyabra : MonoBehaviour
         Rigidbody2D playerRigid = player.gameObject.GetComponent<Rigidbody2D>();
         playerRigid.velocity += throwDirection * throwForce;
 
-        var playerGO = player.gameObject.GetComponent<PlayerMovement>();
+        var playerGO = player.gameObject.GetComponent<Player>();
         if (Time.time > playerGO.invisibileTill)
         {
             playerGO.hp -= damage;
