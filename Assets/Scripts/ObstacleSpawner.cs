@@ -2,9 +2,12 @@ using UnityEngine;
 
 public class ObstacleSpawner : MonoBehaviour
 {
+    [Header("Sprites")]
     public Sprite[] pieceSprites;
     public Sprite[] meteoriteSprites;
     public Sprite[] explosiveSprites;
+    
+    [Header("Properties")]
     public float spawnBeginningOffset = .75f;
     public float spawnTimeout = .5f;
     public int maxObstaclesInFrame = 200;
@@ -33,9 +36,7 @@ public class ObstacleSpawner : MonoBehaviour
             return;
         }
 
-        int index = Random.Range(0, obstaclePrefabs.Length);
-        GameObject go = Instantiate<GameObject>(obstaclePrefabs[index]); 
-        go.transform.parent = _anchor.transform;
+        GameObject go = CreateObject();
         BaseAsteroid obst = go.GetComponent<BaseAsteroid>(); 
 
         switch (obst.identifier)
@@ -58,11 +59,19 @@ public class ObstacleSpawner : MonoBehaviour
 
         float xMin = -_bndCheck.camWidth;
         float xMax = _bndCheck.camWidth;
-        go.GetComponent<BaseAsteroid>().fallingVelocity = Random.Range(minFallSpeed, maxFallSpeed);
+        obst.fallingVelocity = Random.Range(minFallSpeed, maxFallSpeed);
         Transform spawnPosition = go.GetComponent<Transform>();
         Vector3 position = new Vector3(Random.Range(xMin, xMax), _bndCheck.camHeight + 2f, 0.2f);
         spawnPosition.position = position;
 
         Invoke("SpawnObstacle", spawnTimeout);
+    }
+
+    private GameObject CreateObject()
+    {
+        int index = Random.Range(0, obstaclePrefabs.Length);
+        GameObject go = Instantiate<GameObject>(obstaclePrefabs[index]); 
+        go.transform.parent = _anchor.transform;
+        return go;
     }
 }

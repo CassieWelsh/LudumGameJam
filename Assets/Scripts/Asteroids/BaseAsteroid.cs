@@ -40,7 +40,7 @@ public class BaseAsteroid : MonoBehaviour
         Destroy(this.gameObject);
     }
 
-    public void DropBonus()
+    private void DropBonus()
     {
         if (Random.Range(0f, 1f) <= bonusDropChance)
         {

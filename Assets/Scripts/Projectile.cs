@@ -29,7 +29,6 @@ public class Projectile : MonoBehaviour
 
             case "Asteroid":
                 var obst = go.GetComponent<BaseAsteroid>();
-                obst.DropBonus();
                 obst.DestroyObstacle();
                 if (obst.identifier != "Piece")
                     Destroy(this.gameObject);
