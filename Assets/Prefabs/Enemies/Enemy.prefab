@@ -226,6 +226,9 @@ MonoBehaviour:
   lastPointOffset: 2
   lifeTime: 5
   height: -4
+  projectileVelocity: 7
+  shootingCooldown: 0.7
+  projectilePrefab: {fileID: 387353261841139512, guid: d39f972c18d300b478c9474521831147, type: 3}
   canonTransform: {fileID: 2747345662650310795}
   shootingPoint: {fileID: 2747345660614868118}
 --- !u!114 &2747345661349983641
