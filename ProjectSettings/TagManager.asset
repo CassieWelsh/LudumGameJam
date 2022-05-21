@@ -5,9 +5,9 @@ TagManager:
   serializedVersion: 2
   tags:
   - Projectile
-  - BigAsteroid
-  - SmallAsteroid
   - Bonus
+  - Asteroid
+  - BigAsteroid
   - ExplosiveAsteroid
   layers:
   - Default

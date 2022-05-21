@@ -13,16 +13,16 @@ public class BoundsCheck : MonoBehaviour
     public bool isOnScreen = true; 
     public float camWidth;
     public float camHeight;
-    public static GameObject resolutionPoint;
+    private static GameObject _resolutionPoint;
 
     [HideInInspector]
     public bool offRight, offLeft, offUp, offDown;
 
     void Awake()
     {
-        if (resolutionPoint == null)
-            resolutionPoint = GameObject.Find("ResolutionPoint");
-        camHeight = (float) Math.Round(resolutionPoint.transform.position.y, 1);
+        if (_resolutionPoint == null)
+            _resolutionPoint = GameObject.Find("ResolutionPoint");
+        camHeight = (float) Math.Round(_resolutionPoint.transform.position.y, 1);
         camWidth = camHeight * 3f / 4f; 
         // camHeight = Camera.main.orthographicSize; 
         // camWidth = camHeight * Camera.main.aspect;
@@ -64,6 +64,11 @@ public class BoundsCheck : MonoBehaviour
             transform.position = pos;    
             isOnScreen = true;    
             offRight = offLeft = offUp = offDown = false;
+        }
+
+        if (!keepOnScreen && !isOnScreen)
+        {
+            Destroy(gameObject);
         }
     }
 

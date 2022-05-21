@@ -1,5 +1,6 @@
 using System.Collections;
 using System.Collections.Generic;
+using System.Security.Cryptography;
 using UnityEngine;
 
 public class Projectile : MonoBehaviour
@@ -13,28 +14,28 @@ public class Projectile : MonoBehaviour
 
     void Update()
     {
-        if (!bndCheck.isOnScreen)
-            Destroy(this.gameObject);
+        // if (!bndCheck.isOnScreen)
+        //     Destroy(this.gameObject);
     }
 
-    void OnCollisionEnter2D(Collision2D collider)
+    void OnCollisionEnter2D(Collision2D collidedObj)
     {
-        GameObject go = collider.gameObject;
+        GameObject go = collidedObj.gameObject;
         switch (go.tag)
         {
             case "Player":
                 print("Collided with player");
                 break;
 
-            case "SmallAsteroid":
-            case "BigAsteroid":
-                var obst = go.GetComponent<BaseObstacle>();
+            case "Asteroid":
+                var obst = go.GetComponent<BaseAsteroid>();
                 obst.DropBonus();
-                obst.DestroyObject(go, this.gameObject);
+                obst.DestroyObstacle();
+                if (obst.identifier != "Piece")
+                    Destroy(this.gameObject);
                 break;
-            case "ExplosiveAsteroid":
-                var obst1 = go.GetComponent<ExplosiveObstacle>();
-                obst1.DestroyObject(go, this.gameObject);
+            default:
+                Destroy(this.gameObject);
                 break;
         }
     }

@@ -36,10 +36,10 @@ public class Kryakozyabra : MonoBehaviour
         playerRigid.velocity += throwDirection * throwForce;
 
         var playerGO = player.gameObject.GetComponent<Player>();
-        if (Time.time > playerGO.invisibileTill)
+        if (Time.time > playerGO.invincibleTill)
         {
             playerGO.hp -= damage;
-            playerGO.invisibileTill = Time.time + playerGO.damageSplashTime;
+            playerGO.invincibleTill = Time.time + playerGO.damageSplashTime;
         }
     }
 }

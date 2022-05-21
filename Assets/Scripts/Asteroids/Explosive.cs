@@ -2,23 +2,16 @@ using System.Collections;
 using System.Collections.Generic;
 using UnityEngine;
 
-public class ExplosiveObstacle : BaseObstacle
+public class Explosive : BaseAsteroid
 {
     public float fieldOfImpact;
     public float force;
     public LayerMask layerToHit;
 
-    public override void DestroyObject(GameObject obj, GameObject projectile)
+    public override void DestroyObstacle()
     {
         Explode();
-        if (projectile != null)
-            Destroy(projectile);
         Destroy(this.gameObject);
-    }
-
-    public void DestroyObject(GameObject obj)    
-    {
-        DestroyObject(obj, null);
     }
 
     private void Explode()
@@ -39,7 +32,7 @@ public class ExplosiveObstacle : BaseObstacle
 
         if (go.tag == "Player")
         {
-            DestroyObject(this.gameObject);
+            DestroyObstacle();
         }
     }
 }

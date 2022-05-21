@@ -1,11 +1,9 @@
-using System.Collections;
-using System.Collections.Generic;
 using UnityEngine;
 
 public class ObstacleSpawner : MonoBehaviour
 {
-    public Sprite[] bigSprites;
-    public Sprite[] smallSprites;
+    public Sprite[] pieceSprites;
+    public Sprite[] meteoriteSprites;
     public Sprite[] explosiveSprites;
     public float spawnBeginningOffset = .75f;
     public float spawnTimeout = .5f;
@@ -13,23 +11,23 @@ public class ObstacleSpawner : MonoBehaviour
     public bool limitObstacles = true;
     public float minFallSpeed = 2f;
     public float maxFallSpeed = 10f;
-    private BoundsCheck bndCheck;
+    private BoundsCheck _bndCheck;
     [SerializeField]
     private GameObject[] obstaclePrefabs;
 
-    private GameObject anchor;
+    private GameObject _anchor;
 
     void Start()
     {
-        bndCheck = GetComponent<BoundsCheck>();
+        _bndCheck = GetComponent<BoundsCheck>();
         Invoke("SpawnObstacle", spawnBeginningOffset);
-        anchor = Instantiate(new GameObject());
-        anchor.name = "Anchor";
+        _anchor = Instantiate(new GameObject());
+        _anchor.name = "Asteroids";
     }
 
     private void SpawnObstacle()
     {
-        if (limitObstacles && anchor.transform.childCount >= maxObstaclesInFrame)
+        if (limitObstacles && _anchor.transform.childCount >= maxObstaclesInFrame)
         {
             Invoke("SpawnObstacle", spawnTimeout);
             return;
@@ -37,31 +35,32 @@ public class ObstacleSpawner : MonoBehaviour
 
         int index = Random.Range(0, obstaclePrefabs.Length);
         GameObject go = Instantiate<GameObject>(obstaclePrefabs[index]); 
-        go.transform.parent = anchor.transform;
+        go.transform.parent = _anchor.transform;
+        BaseAsteroid obst = go.GetComponent<BaseAsteroid>(); 
 
-        switch (go.tag)
+        switch (obst.identifier)
         {
-            case "BigAsteroid":
-                int ndxBig = Random.Range(0, bigSprites.Length);
-                go.GetComponent<SpriteRenderer>().sprite = bigSprites[ndxBig];
+            case "Piece":
+                int ndxSmall = Random.Range(0, pieceSprites.Length);
+                go.GetComponent<SpriteRenderer>().sprite = pieceSprites[ndxSmall];
                 break;
             
-            case "SmallAsteroid":
-                int ndxSmall = Random.Range(0, smallSprites.Length);
-                go.GetComponent<SpriteRenderer>().sprite = smallSprites[ndxSmall];
+            case "Meteorite":
+                int ndxBig = Random.Range(0, meteoriteSprites.Length);
+                go.GetComponent<SpriteRenderer>().sprite = meteoriteSprites[ndxBig];
                 break;
 
-            case "ExplosiveAsteroid":
+            case "Explosive":
                 int ndxExplosive = Random.Range(0, explosiveSprites.Length);
                 go.GetComponent<SpriteRenderer>().sprite = explosiveSprites[ndxExplosive];
                 break;
         }
 
-        float xMin = -bndCheck.camWidth;
-        float xMax = bndCheck.camWidth;
-        go.GetComponent<BaseObstacle>().fallingSpeed = Random.Range(minFallSpeed, maxFallSpeed);
+        float xMin = -_bndCheck.camWidth;
+        float xMax = _bndCheck.camWidth;
+        go.GetComponent<BaseAsteroid>().fallingVelocity = Random.Range(minFallSpeed, maxFallSpeed);
         Transform spawnPosition = go.GetComponent<Transform>();
-        Vector3 position = new Vector3(Random.Range(xMin, xMax), bndCheck.camHeight + 2f, 0.2f);
+        Vector3 position = new Vector3(Random.Range(xMin, xMax), _bndCheck.camHeight + 2f, 0.2f);
         spawnPosition.position = position;
 
         Invoke("SpawnObstacle", spawnTimeout);

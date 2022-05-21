@@ -17,7 +17,7 @@ public class Player : MonoBehaviour
     public float damageSplashTime = 2f; 
     public float scoreIncreaseIntensity = .5f;
     [HideInInspector]
-    public float invisibileTill = 0;
+    public float invincibleTill = 0;
     [SerializeField]
     private SpriteRenderer[] _spriteRenderer;
     public Vector2 fallingLimit = new Vector2(-5, -5);
@@ -148,7 +148,7 @@ public class Player : MonoBehaviour
     
     private void CheckDamagedState()
     {
-        if (Time.time < invisibileTill)    
+        if (Time.time < invincibleTill)    
             foreach (var mat in _spriteRenderer)
                 mat.material.color = Color.red;
         else
