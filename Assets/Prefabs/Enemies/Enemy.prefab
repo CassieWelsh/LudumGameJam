@@ -227,7 +227,7 @@ MonoBehaviour:
   lifeTime: 5
   height: -4
   projectileVelocity: 7
-  shootingCooldown: 0.7
+  shootingCooldown: 1.5
   projectilePrefab: {fileID: 387353261841139512, guid: d39f972c18d300b478c9474521831147, type: 3}
   canonTransform: {fileID: 2747345662650310795}
   shootingPoint: {fileID: 2747345660614868118}
@@ -325,12 +325,12 @@ SpriteRenderer:
   m_SortingLayerID: 0
   m_SortingLayer: 0
   m_SortingOrder: 0
-  m_Sprite: {fileID: 21300000, guid: ec64ccf1ce9715e43a5316327cb1b88f, type: 3}
+  m_Sprite: {fileID: 21300000, guid: ddf879071d1bbc54a99c84dfd371072e, type: 3}
   m_Color: {r: 1, g: 1, b: 1, a: 1}
   m_FlipX: 0
   m_FlipY: 0
   m_DrawMode: 0
-  m_Size: {x: 0.32, y: 0.32}
+  m_Size: {x: 1, y: 1}
   m_AdaptiveModeThreshold: 0.5
   m_SpriteTileMode: 0
   m_WasSpriteAssigned: 1
