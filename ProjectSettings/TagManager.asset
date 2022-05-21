@@ -10,6 +10,7 @@ TagManager:
   - BigAsteroid
   - ExplosiveAsteroid
   - Enemy
+  - EnemyProjectile
   layers:
   - Default
   - TransparentFX
@@ -23,7 +24,7 @@ TagManager:
   - Krakozyabra
   - Bonus
   - Enemy
-  - 
+  - EnemyProjectile
   - 
   - 
   - 

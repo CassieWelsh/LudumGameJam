@@ -2,13 +2,6 @@ using UnityEngine;
 
 public class Projectile : MonoBehaviour
 {
-    private BoundsCheck bndCheck;
-
-    void Start()
-    {
-        bndCheck = GetComponent<BoundsCheck>();
-    }
-
     void OnCollisionEnter2D(Collision2D collidedObj)
     {
         GameObject go = collidedObj.gameObject;
