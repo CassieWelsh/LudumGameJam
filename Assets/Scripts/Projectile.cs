@@ -1,6 +1,3 @@
-using System.Collections;
-using System.Collections.Generic;
-using System.Security.Cryptography;
 using UnityEngine;
 
 public class Projectile : MonoBehaviour
@@ -10,12 +7,6 @@ public class Projectile : MonoBehaviour
     void Start()
     {
         bndCheck = GetComponent<BoundsCheck>();
-    }
-
-    void Update()
-    {
-        // if (!bndCheck.isOnScreen)
-        //     Destroy(this.gameObject);
     }
 
     void OnCollisionEnter2D(Collision2D collidedObj)

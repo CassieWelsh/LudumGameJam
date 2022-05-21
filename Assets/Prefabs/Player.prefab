@@ -115,7 +115,6 @@ GameObject:
   m_Component:
   - component: {fileID: 995516253}
   - component: {fileID: 995516254}
-  - component: {fileID: 537767458}
   m_Layer: 6
   m_Name: ShipSprite
   m_TagString: Untagged
@@ -190,19 +189,6 @@ SpriteRenderer:
   m_WasSpriteAssigned: 1
   m_MaskInteraction: 0
   m_SpriteSortPoint: 0
---- !u!114 &537767458
-MonoBehaviour:
-  m_ObjectHideFlags: 0
-  m_CorrespondingSourceObject: {fileID: 0}
-  m_PrefabInstance: {fileID: 0}
-  m_PrefabAsset: {fileID: 0}
-  m_GameObject: {fileID: 995516252}
-  m_Enabled: 1
-  m_EditorHideFlags: 0
-  m_Script: {fileID: 11500000, guid: c86d4703bb1df7544be9d4776d7a36cf, type: 3}
-  m_Name: 
-  m_EditorClassIdentifier: 
-  scrollSpeed: 0.5
 --- !u!1 &1180423851
 GameObject:
   m_ObjectHideFlags: 0

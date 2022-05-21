@@ -1,42 +1,66 @@
 using UnityEngine;
 
-public class ObstacleSpawner : MonoBehaviour
+public class AsteroidSpawner : MonoBehaviour
 {
     [Header("Sprites")]
     public Sprite[] pieceSprites;
     public Sprite[] meteoriteSprites;
     public Sprite[] explosiveSprites;
     
-    [Header("Properties")]
+    [Header("Spawn Properties")]
     public float spawnBeginningOffset = .75f;
     public float spawnTimeout = .5f;
-    public int maxObstaclesInFrame = 200;
-    public bool limitObstacles = true;
+    public int maxObjectsInScene = 200;
+    public bool limitObjects = true;
+    
+    [Header("Asteroid Spawn Properties")]
     public float minFallSpeed = 2f;
     public float maxFallSpeed = 10f;
+    
+    private float xMin;
+    private float xMax;
     private BoundsCheck _bndCheck;
     [SerializeField]
-    private GameObject[] obstaclePrefabs;
+    private GameObject[] objectPrefabs;
 
-    private GameObject _anchor;
+    private GameObject _asteroidAnchor;
 
     void Start()
     {
         _bndCheck = GetComponent<BoundsCheck>();
-        Invoke("SpawnObstacle", spawnBeginningOffset);
-        _anchor = Instantiate(new GameObject());
-        _anchor.name = "Asteroids";
+        Invoke("SpawnAsteroid", spawnBeginningOffset);
+        _asteroidAnchor = Instantiate(new GameObject());
+        _asteroidAnchor.name = "Asteroids";
+        xMin = -_bndCheck.camWidth;
+        xMax = _bndCheck.camWidth;
     }
 
-    private void SpawnObstacle()
+    private void SpawnAsteroid()
     {
-        if (limitObstacles && _anchor.transform.childCount >= maxObstaclesInFrame)
+        if (limitObjects && _asteroidAnchor.transform.childCount >= maxObjectsInScene)
         {
-            Invoke("SpawnObstacle", spawnTimeout);
+            Invoke("SpawnAsteroid", spawnTimeout);
             return;
         }
 
         GameObject go = CreateObject();
+        CreateAsteroid(go);
+        Invoke("SpawnAsteroid", spawnTimeout);
+    }
+
+    private GameObject CreateObject()
+    {
+        int index = Random.Range(0, objectPrefabs.Length);
+        GameObject go = Instantiate<GameObject>(objectPrefabs[index]); 
+        
+        Vector3 position = new Vector3(Random.Range(xMin, xMax), _bndCheck.camHeight + 2f, 0.2f);
+        go.transform.position = position;
+        return go;
+    }
+
+    private void CreateAsteroid(GameObject go)
+    {
+        go.transform.parent = _asteroidAnchor.transform;
         BaseAsteroid obst = go.GetComponent<BaseAsteroid>(); 
 
         switch (obst.identifier)
@@ -57,21 +81,6 @@ public class ObstacleSpawner : MonoBehaviour
                 break;
         }
 
-        float xMin = -_bndCheck.camWidth;
-        float xMax = _bndCheck.camWidth;
         obst.fallingVelocity = Random.Range(minFallSpeed, maxFallSpeed);
-        Transform spawnPosition = go.GetComponent<Transform>();
-        Vector3 position = new Vector3(Random.Range(xMin, xMax), _bndCheck.camHeight + 2f, 0.2f);
-        spawnPosition.position = position;
-
-        Invoke("SpawnObstacle", spawnTimeout);
-    }
-
-    private GameObject CreateObject()
-    {
-        int index = Random.Range(0, obstaclePrefabs.Length);
-        GameObject go = Instantiate<GameObject>(obstaclePrefabs[index]); 
-        go.transform.parent = _anchor.transform;
-        return go;
     }
 }
