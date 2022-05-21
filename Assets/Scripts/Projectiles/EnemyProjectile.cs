@@ -9,6 +9,7 @@ public class EnemyProjectile : MonoBehaviour
         {
             case "Player":
                 print("Attacked Player");
+                Destroy(this.gameObject);
                 break;
         }
     }
