@@ -364,7 +364,6 @@ GameObject:
   - component: {fileID: 7910744003066255159}
   - component: {fileID: 27904808}
   - component: {fileID: 386154376}
-  - component: {fileID: 606506754}
   m_Layer: 6
   m_Name: Player
   m_TagString: Player
@@ -442,9 +441,6 @@ MonoBehaviour:
   _canonTransform: {fileID: 7764001200982533164}
   _shootingPoint: {fileID: 1556960858}
   _projectilePrefab: {fileID: 387353261841139512, guid: 7e88802b9e84f154ea1535c366158637, type: 3}
-  hpText: {fileID: 0}
-  scoreText: {fileID: 0}
-  score: 0
 --- !u!50 &27904808
 Rigidbody2D:
   serializedVersion: 4
@@ -500,19 +496,3 @@ PolygonCollider2D:
       - {x: 0.5, y: -0.46875}
       - {x: 0.5, y: 0}
       - {x: 0.15625, y: 0.5}
---- !u!114 &606506754
-MonoBehaviour:
-  m_ObjectHideFlags: 0
-  m_CorrespondingSourceObject: {fileID: 0}
-  m_PrefabInstance: {fileID: 0}
-  m_PrefabAsset: {fileID: 0}
-  m_GameObject: {fileID: 7910744003066255114}
-  m_Enabled: 1
-  m_EditorHideFlags: 0
-  m_Script: {fileID: 11500000, guid: 7d9a1033d2ded8d49b2830a8ff701811, type: 3}
-  m_Name: 
-  m_EditorClassIdentifier: 
-  deathText: {fileID: 0}
-  bestScoreText: {fileID: 0}
-  stats: {fileID: 0}
-  deathScreen: {fileID: 0}

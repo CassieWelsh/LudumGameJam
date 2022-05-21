@@ -167,19 +167,19 @@ PrefabInstance:
   m_Modification:
     m_TransformParent: {fileID: 0}
     m_Modifications:
-    - target: {fileID: 606506754, guid: d19d376ad91d51141a4ea2029a5d5fbf, type: 3}
+    - target: {fileID: 0}
       propertyPath: stats
       value: 
       objectReference: {fileID: 1762573056}
-    - target: {fileID: 606506754, guid: d19d376ad91d51141a4ea2029a5d5fbf, type: 3}
+    - target: {fileID: 0}
       propertyPath: deathText
       value: 
       objectReference: {fileID: 757510163}
-    - target: {fileID: 606506754, guid: d19d376ad91d51141a4ea2029a5d5fbf, type: 3}
+    - target: {fileID: 0}
       propertyPath: deathScreen
       value: 
       objectReference: {fileID: 475819882}
-    - target: {fileID: 606506754, guid: d19d376ad91d51141a4ea2029a5d5fbf, type: 3}
+    - target: {fileID: 0}
       propertyPath: bestScoreText
       value: 
       objectReference: {fileID: 2103885883}
@@ -239,10 +239,6 @@ PrefabInstance:
       propertyPath: scoreText
       value: 
       objectReference: {fileID: 471656591}
-    - target: {fileID: 0}
-      propertyPath: m_Enabled
-      value: 0
-      objectReference: {fileID: 0}
     m_RemovedComponents: []
   m_SourcePrefab: {fileID: 100100000, guid: d19d376ad91d51141a4ea2029a5d5fbf, type: 3}
 --- !u!1 &304553461
@@ -586,7 +582,7 @@ GameObject:
   - component: {fileID: 757510164}
   - component: {fileID: 757510163}
   m_Layer: 5
-  m_Name: Text (TMP)
+  m_Name: DeathText
   m_TagString: Untagged
   m_Icon: {fileID: 0}
   m_NavMeshLayer: 0
@@ -1169,6 +1165,14 @@ PrefabInstance:
   m_Modification:
     m_TransformParent: {fileID: 0}
     m_Modifications:
+    - target: {fileID: 1887417706362152304, guid: e546d4d12e9d97741a039da666da1450, type: 3}
+      propertyPath: limitObstacles
+      value: 0
+      objectReference: {fileID: 0}
+    - target: {fileID: 1887417706362152304, guid: e546d4d12e9d97741a039da666da1450, type: 3}
+      propertyPath: maxObstaclesInFrame
+      value: 0
+      objectReference: {fileID: 0}
     - target: {fileID: 1887417706362152306, guid: e546d4d12e9d97741a039da666da1450, type: 3}
       propertyPath: m_RootOrder
       value: 0
@@ -1216,6 +1220,34 @@ PrefabInstance:
     - target: {fileID: 1887417706362152311, guid: e546d4d12e9d97741a039da666da1450, type: 3}
       propertyPath: m_Name
       value: Main Camera
+      objectReference: {fileID: 0}
+    - target: {fileID: 2527357908322748524, guid: e546d4d12e9d97741a039da666da1450, type: 3}
+      propertyPath: stats
+      value: 
+      objectReference: {fileID: 1762573056}
+    - target: {fileID: 2527357908322748524, guid: e546d4d12e9d97741a039da666da1450, type: 3}
+      propertyPath: hpText
+      value: 
+      objectReference: {fileID: 849403192}
+    - target: {fileID: 2527357908322748524, guid: e546d4d12e9d97741a039da666da1450, type: 3}
+      propertyPath: deathText
+      value: 
+      objectReference: {fileID: 757510163}
+    - target: {fileID: 2527357908322748524, guid: e546d4d12e9d97741a039da666da1450, type: 3}
+      propertyPath: deathScreen
+      value: 
+      objectReference: {fileID: 475819882}
+    - target: {fileID: 2527357908322748524, guid: e546d4d12e9d97741a039da666da1450, type: 3}
+      propertyPath: bestScoreText
+      value: 
+      objectReference: {fileID: 2103885883}
+    - target: {fileID: 7570512766112704408, guid: e546d4d12e9d97741a039da666da1450, type: 3}
+      propertyPath: text
+      value: 
+      objectReference: {fileID: 471656591}
+    - target: {fileID: 7570512766112704408, guid: e546d4d12e9d97741a039da666da1450, type: 3}
+      propertyPath: increaseValue
+      value: 100
       objectReference: {fileID: 0}
     m_RemovedComponents: []
   m_SourcePrefab: {fileID: 100100000, guid: e546d4d12e9d97741a039da666da1450, type: 3}
@@ -1587,7 +1619,7 @@ GameObject:
   - component: {fileID: 2103885884}
   - component: {fileID: 2103885883}
   m_Layer: 5
-  m_Name: Text (TMP)
+  m_Name: BestScoreText
   m_TagString: Untagged
   m_Icon: {fileID: 0}
   m_NavMeshLayer: 0

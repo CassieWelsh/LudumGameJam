@@ -6,6 +6,8 @@ using TMPro;
 
 public class Player : MonoBehaviour
 {
+    public static Player S;
+    
     [Header("Set in Inspector")]
     public int maxHp = 10;
     public int hp;
@@ -38,10 +40,6 @@ public class Player : MonoBehaviour
     [SerializeField]
     private GameObject _projectilePrefab;
     private Rigidbody2D _rigid;
-    [SerializeField]
-    private TMP_Text hpText, scoreText;
-    [HideInInspector]
-    public int score = 0;
 
     void OnEnable()
     {
@@ -61,18 +59,16 @@ public class Player : MonoBehaviour
 
     void Awake()
     {
+        if (S == null) S = this;
+        else Debug.LogError("Tried to create another instance of Player");
+        
         _playerInput = new PlayerInput();
         if (_playerTransform == null)
             _playerTransform = GetComponent<Transform>();
         _camera = Camera.main;
         _engineFlame = transform.Find("EngineFlame").gameObject;
         _rigid = GetComponent<Rigidbody2D>();
-        Invoke("ScoreIncrease", scoreIncreaseIntensity);
         hp = maxHp;
-
-        if (!PlayerPrefs.HasKey("BestScore"))
-            PlayerPrefs.SetInt("BestScore", 0);            
-        UpdateText();
     }
 
     void Update()
@@ -154,21 +150,6 @@ public class Player : MonoBehaviour
         else
             foreach (var mat in _spriteRenderer)
                 mat.material.color = Color.white;
-    }
-
-    private void ScoreIncrease()
-    {
-        score += 100;
-        UpdateText();
-        Invoke("ScoreIncrease", scoreIncreaseIntensity);
-    }    
-
-    private void UpdateText()
-    {
-        string hpString = $"HP\n{hp}/{maxHp}";
-        string scoreString = $"Score\n{score}";
-        hpText.text = hpString;
-        scoreText.text = scoreString;
     }
 
     private void Fire(InputAction.CallbackContext context)
