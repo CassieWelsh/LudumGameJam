@@ -4,6 +4,8 @@ using UnityEngine;
 
 public class EnemySpawner : MonoBehaviour
 {
+    public static EnemySpawner S; 
+    
     [Header("Spawn Properties")]
     public float spawnBeginningOffset = .75f;
     public float spawnTimeout = .5f;
@@ -24,6 +26,9 @@ public class EnemySpawner : MonoBehaviour
 
     void Start()
     {
+        if (S == null) S = this;
+        else Debug.LogError("Tried to create another instance of EnemySpawner");
+        
         _bndCheck = GetComponent<BoundsCheck>();
         Invoke("SpawnEnemy", spawnBeginningOffset);
         _enemyAnchor = Instantiate(new GameObject());

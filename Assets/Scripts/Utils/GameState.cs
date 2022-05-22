@@ -1,5 +1,6 @@
 ﻿public enum GameState
 {
     Normal,
-    BossFight 
+    BossFight,
+    GameOver
 }

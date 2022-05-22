@@ -55,6 +55,8 @@ public class Enemy : MonoBehaviour
 
     private void TwistCanon()
     {
+        if (Main.S.currentGameState == GameState.GameOver) return; 
+        
         Vector2 direction = Player.S.transform.position - canonTransform.position;
         float angle = Mathf.Atan2(direction.y, direction.x) * Mathf.Rad2Deg;
         canonTransform.rotation = Quaternion.AngleAxis(angle, Vector3.forward);
@@ -62,6 +64,8 @@ public class Enemy : MonoBehaviour
     
     private void ShootPlayer()
     {
+        if (Main.S.currentGameState == GameState.GameOver) return; 
+        
         GameObject go = Instantiate(projectilePrefab);
         Rigidbody2D goRigid = go.GetComponent<Rigidbody2D>();
         EnemyProjectile projectile = go.GetComponent<EnemyProjectile>();

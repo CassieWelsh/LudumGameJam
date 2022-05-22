@@ -2,6 +2,8 @@ using UnityEngine;
 
 public class AsteroidSpawner : MonoBehaviour
 {
+    public static AsteroidSpawner S; 
+    
     [Header("Sprites")]
     public Sprite[] pieceSprites;
     public Sprite[] meteoriteSprites;
@@ -27,6 +29,9 @@ public class AsteroidSpawner : MonoBehaviour
 
     void Start()
     {
+        if (S == null) S = this;
+        else Debug.LogError("Tried to create another instance of AsteroidSpawner");
+        
         _bndCheck = GetComponent<BoundsCheck>();
         Invoke("SpawnAsteroid", spawnBeginningOffset);
         _asteroidAnchor = Instantiate(new GameObject());
