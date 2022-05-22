@@ -4,9 +4,12 @@ using TMPro;
 public class Main : MonoBehaviour
 {
     public TMP_Text deathText, bestScoreText, hpText;
-    private MouseCrosshair crosshair;
+    public GameState gameState;
     [SerializeField] private GameObject stats;
     [SerializeField] private GameObject deathScreen;
+    private MouseCrosshair crosshair;
+    private AsteroidSpawner _asteroidSpawner;
+    private EnemySpawner _enemySpawner;
 
     void Start()
     {
@@ -14,10 +17,23 @@ public class Main : MonoBehaviour
         crosshair = GameObject.Find("Crosshair").GetComponent<MouseCrosshair>();
         stats.SetActive(true);
         deathScreen.SetActive(false);
+
+        gameState = GameState.Normal;
+        _asteroidSpawner = GetComponent<AsteroidSpawner>();
+        _enemySpawner = GetComponent<EnemySpawner>();
     }
 
     void Update()
     {
+        switch (gameState)
+        {
+            case GameState.Normal:
+                break;
+            
+            case GameState.BossFight:
+                break;
+        }
+        
         if (Player.S.hp <= 0)
             DeathMethod();
 

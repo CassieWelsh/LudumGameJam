@@ -3,6 +3,9 @@ using UnityEngine;
 
 public class Enemy : MonoBehaviour
 {
+    public int hp = 10;
+    public int projectileDamage = 1;
+    public float damageSplashTime = 2f;
     public float lastPointOffset = 2f;
     public float lifeTime = 2f;
     public float height = -4f;
@@ -11,6 +14,9 @@ public class Enemy : MonoBehaviour
     public GameObject projectilePrefab;
     public Transform canonTransform;
     public Transform shootingPoint;
+
+    public float invincibleTill;
+    private SpriteRenderer[] _spriteRenderers;
     private float _currentTime = 0f;
     private Vector2 _p0;
     private Vector2 _p1;
@@ -25,14 +31,20 @@ public class Enemy : MonoBehaviour
         // float x = Random.Range(0f, .5f) < .25f ? -_bndCheck.camWidth - lastPointOffset : _bndCheck.camWidth + lastPointOffset;
         float x = _p0.x > 0 ? -_bndCheck.camWidth - lastPointOffset : _bndCheck.camWidth + lastPointOffset;
         _p2 = new Vector2(x, _p1.y);
+
+        _spriteRenderers = GetComponentsInChildren<SpriteRenderer>();
         
         Invoke("ShootPlayer", .1f);
     }
 
     void Update()
     {
+        if (hp <= 0) 
+            Destroy(this.gameObject);
+        
         Accelerate();
         TwistCanon();
+        CheckDamagedState();
     }
 
     private void Accelerate()
@@ -52,8 +64,10 @@ public class Enemy : MonoBehaviour
     {
         GameObject go = Instantiate(projectilePrefab);
         Rigidbody2D goRigid = go.GetComponent<Rigidbody2D>();
+        EnemyProjectile projectile = go.GetComponent<EnemyProjectile>();
         Vector2 direction = (Vector2) (Player.S.transform.position - shootingPoint.position);
 
+        projectile.damage = projectileDamage;
         goRigid.position = shootingPoint.position;
         goRigid.velocity = direction.normalized * projectileVelocity;
 
@@ -68,4 +82,13 @@ public class Enemy : MonoBehaviour
         return result;
     }
 
+    private void CheckDamagedState()
+    {
+        if (Time.time < invincibleTill)    
+            foreach (var mat in _spriteRenderers)
+                mat.material.color = Color.red;
+        else
+            foreach (var mat in _spriteRenderers)
+                mat.material.color = Color.white;
+    }
 }

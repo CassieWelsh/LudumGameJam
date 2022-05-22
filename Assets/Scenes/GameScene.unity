@@ -1158,6 +1158,10 @@ PrefabInstance:
       value: 0
       objectReference: {fileID: 0}
     - target: {fileID: 1887417706362152304, guid: e546d4d12e9d97741a039da666da1450, type: 3}
+      propertyPath: maxObjectsInScene
+      value: 200
+      objectReference: {fileID: 0}
+    - target: {fileID: 1887417706362152304, guid: e546d4d12e9d97741a039da666da1450, type: 3}
       propertyPath: maxObstaclesInFrame
       value: 1
       objectReference: {fileID: 0}
@@ -1351,15 +1355,19 @@ PrefabInstance:
       objectReference: {fileID: 0}
     - target: {fileID: 6108202161184379106, guid: e546d4d12e9d97741a039da666da1450, type: 3}
       propertyPath: flyOffLimit.x
-      value: 4
+      value: -2
       objectReference: {fileID: 0}
     - target: {fileID: 6108202161184379106, guid: e546d4d12e9d97741a039da666da1450, type: 3}
       propertyPath: flyOffLimit.y
-      value: -4
+      value: -6
+      objectReference: {fileID: 0}
+    - target: {fileID: 6108202161184379106, guid: e546d4d12e9d97741a039da666da1450, type: 3}
+      propertyPath: lifeTimeLimit.x
+      value: 4
       objectReference: {fileID: 0}
     - target: {fileID: 6108202161184379106, guid: e546d4d12e9d97741a039da666da1450, type: 3}
       propertyPath: lifeTimeLimit.y
-      value: 3
+      value: 10
       objectReference: {fileID: 0}
     - target: {fileID: 6108202161184379106, guid: e546d4d12e9d97741a039da666da1450, type: 3}
       propertyPath: maxEnemiesInScene

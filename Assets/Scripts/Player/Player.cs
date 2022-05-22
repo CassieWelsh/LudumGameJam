@@ -11,16 +11,15 @@ public class Player : MonoBehaviour
     [Header("Set in Inspector")]
     public int maxHp = 10;
     public int hp;
+    public int projectileDamage = 1;
     public float velocity = 5f;
     public float fallingVelocity = 5f;
     public float rotationVelocity = 15f;
     public float projectileVelocity = 5f;
     public float weaponCoolDown = .5f;
     public float damageSplashTime = 2f; 
-    public float scoreIncreaseIntensity = .5f;
     [HideInInspector]
     public float invincibleTill = 0;
-    [SerializeField]
     private SpriteRenderer[] _spriteRenderer;
     public Vector2 fallingLimit = new Vector2(-5, -5);
     public Vector2 accelerationLimit = new Vector2(5, 5); 
@@ -69,6 +68,8 @@ public class Player : MonoBehaviour
         _engineFlame = transform.Find("EngineFlame").gameObject;
         _rigid = GetComponent<Rigidbody2D>();
         hp = maxHp;
+
+        _spriteRenderer = GetComponentsInChildren<SpriteRenderer>();
     }
 
     void Update()
@@ -159,9 +160,11 @@ public class Player : MonoBehaviour
 
         GameObject go = Instantiate(_projectilePrefab);
         Rigidbody2D goRigid = go.GetComponent<Rigidbody2D>();
+        Projectile projectile = go.GetComponent<Projectile>();
         Vector3 mousePosition = _camera.ScreenToWorldPoint(Mouse.current.position.ReadValue());
         Vector2 direction = (Vector2) (mousePosition - _shootingPoint.position);
 
+        projectile.damage = projectileDamage;
         goRigid.position = _shootingPoint.position;
         goRigid.velocity = direction.normalized * projectileVelocity;
 
