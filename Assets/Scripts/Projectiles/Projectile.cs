@@ -25,7 +25,7 @@ public class Projectile : MonoBehaviour
                 if (Time.time > enemy.invincibleTill)
                 {
                     enemy.hp -= damage;
-                    enemy.invincibleTill = Time.time + Player.S.damageSplashTime;
+                    enemy.invincibleTill = Time.time + enemy.damageSplashTime;
                 }
                 Destroy(this.gameObject);
                 break;
