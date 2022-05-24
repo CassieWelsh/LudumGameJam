@@ -11,6 +11,7 @@ public class Boss : MonoBehaviour
     public float projectileSpeed = 5f;
     public float projectileCooldown = .7f;
     public float topShootingSpeed = 5f;
+    public int projectileRound = 3;
     public float damageSplashTime = .7f;
     public float phaseTwoPercentage = .9f;
     public float phaseThreePercentage = .5f;
@@ -56,15 +57,17 @@ public class Boss : MonoBehaviour
 
     private void RotateTowardsPlayer()
     {
-         Vector3 targ = Player.S.transform.position;
-         targ.z = 0f;
+        if (Main.S.currentGameState == GameState.GameOver) return;
+        
+        Vector3 targ = Player.S.transform.position;
+        targ.z = 0f;
 
-         Vector3 objectPos = transform.position;
-         targ.x = targ.x - objectPos.x;
-         targ.y = targ.y - objectPos.y;
+        Vector3 objectPos = transform.position;
+        targ.x = targ.x - objectPos.x;
+        targ.y = targ.y - objectPos.y;
 
-         float angle = Mathf.Atan2(targ.y, targ.x) * Mathf.Rad2Deg;
-         transform.rotation = Quaternion.Euler(new Vector3(0, 0, angle));
+        float angle = Mathf.Atan2(targ.y, targ.x) * Mathf.Rad2Deg;
+        transform.rotation = Quaternion.Euler(new Vector3(0, 0, angle));
     }
 
     public void ShootHead()
@@ -76,6 +79,8 @@ public class Boss : MonoBehaviour
 
     public void Shoot()
     {
+        if (Main.S.currentGameState == GameState.GameOver) return;
+        
         GameObject go = Instantiate(projectilePrefab);
         Rigidbody2D goRigid = go.GetComponent<Rigidbody2D>();
         EnemyProjectile projectile = go.GetComponent<EnemyProjectile>();
