@@ -32,7 +32,7 @@ public class Explosive : BaseAsteroid
 
         if (go.tag == "Player")
         {
-            DestroyObstacle();
+            // DestroyObstacle();
         }
     }
 }

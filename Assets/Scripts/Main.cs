@@ -38,7 +38,7 @@ public class Main : MonoBehaviour
         currentGameState = GameState.Normal;
         _asteroidSpawner = GetComponent<AsteroidSpawner>();
         _enemySpawner = GetComponent<EnemySpawner>();
-        _previousGameState = currentGameState;
+        _previousGameState = GameState.Null;
     }
 
     void Update()
