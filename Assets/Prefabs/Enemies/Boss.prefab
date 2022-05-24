@@ -95,15 +95,15 @@ SpriteRenderer:
   m_SortingLayerID: 0
   m_SortingLayer: 0
   m_SortingOrder: 0
-  m_Sprite: {fileID: 0}
+  m_Sprite: {fileID: 21300000, guid: a0b7b7961b54881448a36b7e68e0c004, type: 3}
   m_Color: {r: 1, g: 1, b: 1, a: 1}
   m_FlipX: 0
   m_FlipY: 0
   m_DrawMode: 0
-  m_Size: {x: 0.32, y: 0.32}
+  m_Size: {x: 1, y: 1}
   m_AdaptiveModeThreshold: 0.5
   m_SpriteTileMode: 0
-  m_WasSpriteAssigned: 0
+  m_WasSpriteAssigned: 1
   m_MaskInteraction: 0
   m_SpriteSortPoint: 0
 --- !u!60 &837103516
@@ -171,6 +171,7 @@ Transform:
   m_Children:
   - {fileID: 8810475166413669517}
   - {fileID: 837103513}
+  - {fileID: 482365109416228878}
   m_Father: {fileID: 0}
   m_RootOrder: 0
   m_LocalEulerAnglesHint: {x: 0, y: 0, z: 180}
@@ -228,13 +229,17 @@ MonoBehaviour:
   m_Script: {fileID: 11500000, guid: 879c3630c2b48d34fb7fcd13267f12d3, type: 3}
   m_Name: 
   m_EditorClassIdentifier: 
+  maxHp: 20
   hp: 20
   easing: 0.01
   damage: 1
+  projectileSpeed: 5
+  projectileCooldown: 0.7
   topShootingSpeed: 20
   damageSplashTime: 0.3
   phaseTwoPercentage: 0.9
   phaseThreePercentage: 0.5
+  projectilePrefab: {fileID: 387353261841139512, guid: d39f972c18d300b478c9474521831147, type: 3}
   invincibleTill: 0
 --- !u!1 &2991401017511216832
 GameObject:
@@ -410,3 +415,34 @@ MonoBehaviour:
   offLeft: 0
   offUp: 0
   offDown: 0
+--- !u!1 &6147155417136606477
+GameObject:
+  m_ObjectHideFlags: 0
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInstance: {fileID: 0}
+  m_PrefabAsset: {fileID: 0}
+  serializedVersion: 6
+  m_Component:
+  - component: {fileID: 482365109416228878}
+  m_Layer: 0
+  m_Name: ShootingPoint
+  m_TagString: Untagged
+  m_Icon: {fileID: 0}
+  m_NavMeshLayer: 0
+  m_StaticEditorFlags: 0
+  m_IsActive: 1
+--- !u!4 &482365109416228878
+Transform:
+  m_ObjectHideFlags: 0
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInstance: {fileID: 0}
+  m_PrefabAsset: {fileID: 0}
+  m_GameObject: {fileID: 6147155417136606477}
+  m_LocalRotation: {x: -0, y: -0, z: -0, w: 1}
+  m_LocalPosition: {x: 0.122, y: 0, z: 0}
+  m_LocalScale: {x: 1, y: 1, z: 1}
+  m_ConstrainProportionsScale: 1
+  m_Children: []
+  m_Father: {fileID: 2747345661349983644}
+  m_RootOrder: 2
+  m_LocalEulerAnglesHint: {x: 0, y: 0, z: 0}

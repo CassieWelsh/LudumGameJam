@@ -4,17 +4,22 @@ using UnityEngine;
 
 public class Boss : MonoBehaviour
 {
+    public int maxHp = 20;
     public int hp = 20;
     public float easing = .2f;
     public int damage = 1;
+    public float projectileSpeed = 5f;
+    public float projectileCooldown = .7f;
     public float topShootingSpeed = 5f;
     public float damageSplashTime = .7f;
     public float phaseTwoPercentage = .9f;
     public float phaseThreePercentage = .5f;
+    public GameObject projectilePrefab;
     [HideInInspector] public float invincibleTill;
     private Animator _animator;
     private List<SpriteRenderer> _sprites;
     private GameObject _top;
+    private Transform _shootingPoint;
 
     void Start()
     {
@@ -22,6 +27,9 @@ public class Boss : MonoBehaviour
         _sprites = GetComponentsInChildren<SpriteRenderer>().ToList();
         _animator.SetInteger("MaxHp", hp);
         _top = transform.Find("Head").gameObject;
+        _shootingPoint = transform.Find("ShootingPoint");
+
+        hp = maxHp;
     }
 
     void Update()
@@ -68,6 +76,13 @@ public class Boss : MonoBehaviour
 
     public void Shoot()
     {
-        
+        GameObject go = Instantiate(projectilePrefab);
+        Rigidbody2D goRigid = go.GetComponent<Rigidbody2D>();
+        EnemyProjectile projectile = go.GetComponent<EnemyProjectile>();
+
+        projectile.damage = damage;
+        var direction = (Player.S.transform.position - _shootingPoint.position).normalized * projectileSpeed;
+        goRigid.position = _shootingPoint.position;
+        goRigid.velocity = direction;
     }
 }
