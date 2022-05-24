@@ -1218,6 +1218,22 @@ PrefabInstance:
       propertyPath: bestScoreText
       value: 
       objectReference: {fileID: 2103885883}
+    - target: {fileID: 2527357908322748524, guid: e546d4d12e9d97741a039da666da1450, type: 3}
+      propertyPath: bossScoreDivisor
+      value: 5000
+      objectReference: {fileID: 0}
+    - target: {fileID: 2527357908322748524, guid: e546d4d12e9d97741a039da666da1450, type: 3}
+      propertyPath: spawnProperties.Array.data[1].aSpawnTimeout
+      value: 0.5
+      objectReference: {fileID: 0}
+    - target: {fileID: 2527357908322748524, guid: e546d4d12e9d97741a039da666da1450, type: 3}
+      propertyPath: spawnProperties.Array.data[1].eSpawnTimeout
+      value: 10
+      objectReference: {fileID: 0}
+    - target: {fileID: 2527357908322748524, guid: e546d4d12e9d97741a039da666da1450, type: 3}
+      propertyPath: spawnProperties.Array.data[1].aMaxObjectsInScene
+      value: 20
+      objectReference: {fileID: 0}
     - target: {fileID: 7570512766112704408, guid: e546d4d12e9d97741a039da666da1450, type: 3}
       propertyPath: text
       value: 

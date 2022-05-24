@@ -90,4 +90,9 @@ public class Boss : MonoBehaviour
         goRigid.position = _shootingPoint.position;
         goRigid.velocity = direction;
     }
+
+    void OnDestroy()
+    {
+        Main.S.currentGameState = GameState.Normal;
+    }
 }

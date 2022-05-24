@@ -45,7 +45,9 @@ public class EnemySpawner : MonoBehaviour
         }
 
         GameObject go = CreateObject();
-        CreateEnemy(go);
+        if (Main.S.currentGameState != GameState.BossFight)
+            CreateEnemy(go);
+        
         Invoke("SpawnEnemy", spawnTimeout);
     }  
     
@@ -53,6 +55,7 @@ public class EnemySpawner : MonoBehaviour
     {
         int index = Random.Range(0, objectPrefabs.Length);
         GameObject go = Instantiate<GameObject>(objectPrefabs[index]); 
+        go.transform.parent = _enemyAnchor.transform;
         
         Vector3 position = new Vector3(Random.Range(xMin, xMax), _bndCheck.camHeight + 2f, 0.2f);
         go.transform.position = position;
@@ -61,7 +64,6 @@ public class EnemySpawner : MonoBehaviour
     
     private void CreateEnemy(GameObject go)
     {
-        go.transform.parent = _enemyAnchor.transform;
         Enemy enemy = go.GetComponent<Enemy>();
         enemy.lastPointOffset = Random.Range(lastPointOffsetLimit.x, lastPointOffsetLimit.y);
         enemy.lifeTime = Random.Range(lifeTimeLimit.x, lifeTimeLimit.y);

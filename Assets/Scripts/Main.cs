@@ -12,6 +12,7 @@ public class Main : MonoBehaviour
     public TMP_Text deathText, bestScoreText, hpText;
     public GameState currentGameState;
     public GameObject background;
+    public int bossScoreDivisor = 50000;
     [SerializeField] private GameObject stats;
     [SerializeField] private GameObject deathScreen;
     private MouseCrosshair crosshair;
@@ -45,6 +46,15 @@ public class Main : MonoBehaviour
         if (Player.S.hp <= 0)
             currentGameState = GameState.GameOver;
 
+        if (Score.S.score != 0 && Score.S.score % bossScoreDivisor == 0)
+            currentGameState = GameState.BossFight;
+        
+        CheckGameState();
+        UpdateHpText();
+    }
+
+    private void CheckGameState()
+    {
         if (_previousGameState != currentGameState)
         {
             switch (currentGameState)
@@ -64,8 +74,6 @@ public class Main : MonoBehaviour
 
             _previousGameState = currentGameState;
         }
-
-        UpdateHpText();
     }
 
     private void SwitchToNormal()
@@ -95,6 +103,8 @@ public class Main : MonoBehaviour
         _enemySpawner.objectPrefabs = properties.enemyPrefabs;
 
         scroll.scrollSpeed = properties.backgroundScrollSpeed;
+
+        Player.S.fallingVelocity = properties.fallingVelocity;
     }
 
     private void UpdateHpText()

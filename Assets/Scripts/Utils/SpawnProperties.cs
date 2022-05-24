@@ -9,6 +9,7 @@ namespace Utils
     {
         public GameState state;
         public float backgroundScrollSpeed;
+        public float fallingVelocity;
         
         public float aSpawnBeginningOffset;
         public float aSpawnTimeout;

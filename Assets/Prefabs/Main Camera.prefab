@@ -178,11 +178,13 @@ MonoBehaviour:
   hpText: {fileID: 0}
   currentGameState: 0
   background: {fileID: 0}
+  bossScoreDivisor: 5000
   stats: {fileID: 0}
   deathScreen: {fileID: 0}
   spawnProperties:
   - state: 0
     backgroundScrollSpeed: 5
+    fallingVelocity: 6
     aSpawnBeginningOffset: 1
     aSpawnTimeout: 0.1
     aMaxObjectsInScene: 100
@@ -208,9 +210,10 @@ MonoBehaviour:
     - {fileID: 2747345661349983646, guid: 72b28b662ad6d0c4d8c51de4c17ea6c9, type: 3}
   - state: 1
     backgroundScrollSpeed: 0.25
+    fallingVelocity: 1
     aSpawnBeginningOffset: 0
-    aSpawnTimeout: 0
-    aMaxObjectsInScene: 0
+    aSpawnTimeout: 0.5
+    aMaxObjectsInScene: 20
     aLimitObjects: 1
     asteroidPrefabs:
     - {fileID: 5667707202355784034, guid: 532051e48774b194f93f292e71116cbf, type: 3}
