@@ -11,6 +11,8 @@ TagManager:
   - ExplosiveAsteroid
   - Enemy
   - EnemyProjectile
+  - Boss
+  - BossHead
   layers:
   - Default
   - TransparentFX
@@ -25,7 +27,7 @@ TagManager:
   - Bonus
   - Enemy
   - EnemyProjectile
-  - 
+  - BossHead
   - 
   - 
   - 

@@ -1,5 +1,7 @@
+using System.Collections.Generic;
 using UnityEngine;
 using TMPro;
+using Utils;
 
 public class Main : MonoBehaviour
 {
@@ -13,6 +15,8 @@ public class Main : MonoBehaviour
     private AsteroidSpawner _asteroidSpawner;
     private EnemySpawner _enemySpawner;
     private GameState _previousGameState;
+
+    public List<SpawnProperties> spawnProperties;
 
     void Start()
     {
@@ -60,10 +64,29 @@ public class Main : MonoBehaviour
 
     private void SwitchToNormal()
     {
+        ChangeSpawnProperties(currentGameState);
     }
 
     private void SwitchToBoss()
     {
+        ChangeSpawnProperties(currentGameState);
+    }
+
+    private void ChangeSpawnProperties(GameState state)
+    {
+        var properties = spawnProperties.Find(prop => prop.state == state); 
+        
+        _asteroidSpawner.spawnBeginningOffset = properties.aSpawnBeginningOffset;
+        _asteroidSpawner.spawnTimeout = properties.aSpawnTimeout;
+        _asteroidSpawner.maxObjectsInScene = properties.aMaxObjectsInScene;
+        _asteroidSpawner.limitObjects = properties.aLimitObjects;
+        _asteroidSpawner.objectPrefabs = properties.asteroidPrefabs;
+
+        _enemySpawner.spawnBeginningOffset = properties.eSpawnBeginningOffset;
+        _enemySpawner.spawnTimeout = properties.eSpawnTimeout;
+        _enemySpawner.maxEnemiesInScene = properties.eMaxEnemiesInScene;
+        _enemySpawner.limitEnemies = properties.eLimitEnemies;
+        _enemySpawner.objectPrefabs = properties.enemyPrefabs;
     }
 
     private void UpdateHpText()

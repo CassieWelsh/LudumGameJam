@@ -15,6 +15,7 @@ public class Enemy : MonoBehaviour
     public Transform canonTransform;
     public Transform shootingPoint;
 
+    [HideInInspector]
     public float invincibleTill;
     private SpriteRenderer[] _spriteRenderers;
     private float _currentTime = 0f;

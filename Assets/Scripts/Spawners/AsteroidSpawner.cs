@@ -22,8 +22,8 @@ public class AsteroidSpawner : MonoBehaviour
     private float xMin;
     private float xMax;
     private BoundsCheck _bndCheck;
-    [SerializeField]
-    private GameObject[] objectPrefabs;
+    
+    public GameObject[] objectPrefabs;
 
     private GameObject _asteroidAnchor;
 

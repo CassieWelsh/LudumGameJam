@@ -30,6 +30,16 @@ public class Projectile : MonoBehaviour
                 Destroy(this.gameObject);
                 break;
             
+            case "Boss":
+                var boss = go.GetComponent<Boss>();
+                if (Time.time > boss.invincibleTill)
+                {
+                    boss.hp -= damage;
+                    boss.invincibleTill = Time.time + boss.damageSplashTime;
+                }
+                Destroy(this.gameObject);
+                break;
+
             default:
                 Destroy(this.gameObject);
                 break;

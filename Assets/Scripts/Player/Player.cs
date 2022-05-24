@@ -38,7 +38,7 @@ public class Player : MonoBehaviour
     private Transform _shootingPoint;
     [SerializeField]
     private GameObject _projectilePrefab;
-    private Rigidbody2D _rigid;
+    public Rigidbody2D rigid;
 
     void OnEnable()
     {
@@ -66,7 +66,7 @@ public class Player : MonoBehaviour
             _playerTransform = GetComponent<Transform>();
         _camera = Camera.main;
         _engineFlame = transform.Find("EngineFlame").gameObject;
-        _rigid = GetComponent<Rigidbody2D>();
+        rigid = GetComponent<Rigidbody2D>();
         hp = maxHp;
 
         _spriteRenderer = GetComponentsInChildren<SpriteRenderer>();
@@ -85,7 +85,7 @@ public class Player : MonoBehaviour
     private void Move()
     {
         _moveValue = _movement.ReadValue<Vector2>();        
-        _rigid.velocity += (Vector2) _playerTransform.up * (velocity * Time.deltaTime * _moveValue.y);
+        rigid.velocity += (Vector2) _playerTransform.up * (velocity * Time.deltaTime * _moveValue.y);
         _playerTransform.Rotate(new Vector3(0, 0, -rotationVelocity * _moveValue.x * Time.deltaTime));
 
         Ignite();
@@ -101,28 +101,28 @@ public class Player : MonoBehaviour
 
     private void LimitAcceleration()
     {
-        if (_rigid.velocity.y <= fallingLimit.y)
+        if (rigid.velocity.y <= fallingLimit.y)
         {
-            Vector2 limit = new Vector2(_rigid.velocity.x, fallingLimit.y); 
-            _rigid.velocity = limit;
+            Vector2 limit = new Vector2(rigid.velocity.x, fallingLimit.y); 
+            rigid.velocity = limit;
         }
 
-        if (_rigid.velocity.x <= fallingLimit.x)
+        if (rigid.velocity.x <= fallingLimit.x)
         {
-            Vector2 limit = new Vector2(fallingLimit.x, _rigid.velocity.y); 
-            _rigid.velocity = limit;
+            Vector2 limit = new Vector2(fallingLimit.x, rigid.velocity.y); 
+            rigid.velocity = limit;
         }
 
-        if (_rigid.velocity.y >= accelerationLimit.y)
+        if (rigid.velocity.y >= accelerationLimit.y)
         {
-            Vector2 limit = new Vector2(_rigid.velocity.x, accelerationLimit.y); 
-            _rigid.velocity = limit;
+            Vector2 limit = new Vector2(rigid.velocity.x, accelerationLimit.y); 
+            rigid.velocity = limit;
         }
 
-        if (_rigid.velocity.x >= accelerationLimit.x)
+        if (rigid.velocity.x >= accelerationLimit.x)
         {
-            Vector2 limit = new Vector2(accelerationLimit.x, _rigid.velocity.y); 
-            _rigid.velocity = limit;
+            Vector2 limit = new Vector2(accelerationLimit.x, rigid.velocity.y); 
+            rigid.velocity = limit;
         }
     }
 
@@ -130,7 +130,7 @@ public class Player : MonoBehaviour
     {
         if (_moveValue.y == 0)
             // _playerTransform.position -= new Vector3(0, fallingSpeed * Time.deltaTime, 0);
-            _rigid.velocity -= new Vector2(0, fallingVelocity) * Time.deltaTime;
+            rigid.velocity -= new Vector2(0, fallingVelocity) * Time.deltaTime;
     }
 
     private void TwistCanon()

@@ -17,8 +17,7 @@ public class EnemySpawner : MonoBehaviour
     public Vector2 lifeTimeLimit = new Vector2(2f, 10f);
     public Vector2 flyOffLimit = new Vector2(-4f, -6f);
     
-    [SerializeField]
-    private GameObject[] objectPrefabs;
+    public GameObject[] objectPrefabs;
     private GameObject _enemyAnchor;
     private BoundsCheck _bndCheck;
     private float xMin;
