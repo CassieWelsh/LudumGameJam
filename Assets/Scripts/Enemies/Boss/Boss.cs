@@ -21,14 +21,15 @@ public class Boss : MonoBehaviour
     private List<SpriteRenderer> _sprites;
     private GameObject _top;
     private Transform _shootingPoint;
+    private Rigidbody2D _rigidbody2D;
 
     void Start()
     {
         _animator = GetComponentInChildren<Animator>();
         _sprites = GetComponentsInChildren<SpriteRenderer>().ToList();
-        _animator.SetInteger("MaxHp", hp);
         _top = transform.Find("Head").gameObject;
         _shootingPoint = transform.Find("ShootingPoint");
+        _rigidbody2D = GetComponent<Rigidbody2D>();
 
         hp = maxHp;
     }
@@ -52,6 +53,11 @@ public class Boss : MonoBehaviour
     
     private void MoveToCenter()
     {
+        if (_animator.GetCurrentAnimatorStateInfo(0).IsName("Dead"))
+        {
+            _rigidbody2D.bodyType = RigidbodyType2D.Dynamic; 
+            return;
+        }
         transform.position = Vector2.Lerp(transform.position, new Vector2(0, 0), easing);
     }
 
