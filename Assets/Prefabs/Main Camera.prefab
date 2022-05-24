@@ -212,7 +212,7 @@ MonoBehaviour:
     backgroundScrollSpeed: 0.25
     fallingVelocity: 1
     aSpawnBeginningOffset: 0
-    aSpawnTimeout: 0.5
+    aSpawnTimeout: 0.3
     aMaxObjectsInScene: 20
     aLimitObjects: 1
     asteroidPrefabs:
