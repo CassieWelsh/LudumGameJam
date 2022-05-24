@@ -7,8 +7,9 @@ public class DeadState : StateMachineBehaviour
     override public void OnStateEnter(Animator animator, AnimatorStateInfo stateInfo, int layerIndex)
     {
         animator.gameObject.GetComponentInChildren<SpriteRenderer>().color = Color.grey;
+        Score.S.increaseValue = PhaseOne.scoreValue;
     }
-
+    
     // OnStateUpdate is called on each Update frame between OnStateEnter and OnStateExit callbacks
     //override public void OnStateUpdate(Animator animator, AnimatorStateInfo stateInfo, int layerIndex)
     //{

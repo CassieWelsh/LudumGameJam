@@ -234,6 +234,8 @@ MonoBehaviour:
   projectilePrefab: {fileID: 387353261841139512, guid: d39f972c18d300b478c9474521831147, type: 3}
   canonTransform: {fileID: 2747345662650310795}
   shootingPoint: {fileID: 2747345660614868118}
+  bonusPrefab: {fileID: 7180333715820019797, guid: d8d00be86e1867f43ae706bd56a4598f, type: 3}
+  bonusDropChance: 0.75
   invincibleTill: 0
 --- !u!114 &2747345661349983641
 MonoBehaviour:

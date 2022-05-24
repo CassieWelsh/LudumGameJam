@@ -4,6 +4,7 @@ using UnityEngine;
 
 public class PhaseTwo : StateMachineBehaviour
 {
+    public AudioClip sound;
     private Boss _boss; 
     private int _nextPhaseHp;
     private float _coolDownTime;
@@ -25,7 +26,11 @@ public class PhaseTwo : StateMachineBehaviour
 
         if (_boss.hp <= _nextPhaseHp)
         {
-            animator.SetTrigger("PhaseThree");        
+            animator.SetTrigger("PhaseThree");
+            var audioSource = animator.gameObject.transform.parent.GetComponent<AudioSource>();
+            audioSource.Stop();
+            audioSource.clip = sound;
+            audioSource.Play();
         }
     }
 

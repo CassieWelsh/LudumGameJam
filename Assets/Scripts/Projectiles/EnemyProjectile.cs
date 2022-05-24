@@ -4,7 +4,7 @@ public class EnemyProjectile : MonoBehaviour
 {
     public int damage = 1; 
     
-    private void OnCollisionEnter2D(Collision2D col)
+    private void OnTriggerEnter2D(Collider2D col)
     {
         GameObject go = col.gameObject;
         switch (go.tag)

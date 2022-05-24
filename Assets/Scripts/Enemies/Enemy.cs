@@ -14,6 +14,8 @@ public class Enemy : MonoBehaviour
     public GameObject projectilePrefab;
     public Transform canonTransform;
     public Transform shootingPoint;
+    public GameObject bonusPrefab;
+    public float bonusDropChance = .75f;
 
     [HideInInspector]
     public float invincibleTill;
@@ -40,12 +42,24 @@ public class Enemy : MonoBehaviour
 
     void Update()
     {
-        if (hp <= 0) 
+        if (hp <= 0)
+        {
+            DropHeal();
             Destroy(this.gameObject);
+        }
         
         Accelerate();
         TwistCanon();
         CheckDamagedState();
+    }
+
+    private void DropHeal()
+    {
+        if (Random.Range(0f, 1f) <= bonusDropChance)
+        {
+            GameObject go = Instantiate(bonusPrefab);
+            go.transform.position = transform.position; 
+        }
     }
 
     private void Accelerate()

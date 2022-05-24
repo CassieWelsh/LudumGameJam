@@ -408,8 +408,8 @@ MonoBehaviour:
   m_Script: {fileID: 11500000, guid: f656e05b5cae11247b43bf2b9c671b13, type: 3}
   m_Name: 
   m_EditorClassIdentifier: 
-  maxHp: 10
-  hp: 10
+  maxHp: 15
+  hp: 15
   projectileDamage: 1
   velocity: 20
   fallingVelocity: 6

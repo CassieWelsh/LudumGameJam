@@ -10,8 +10,8 @@ public class Boss : MonoBehaviour
     public int damage = 1;
     public float projectileSpeed = 5f;
     public float projectileCooldown = .7f;
+    public float projectileThirdPhaseCooldown = .2f;
     public float topShootingSpeed = 5f;
-    public int projectileRound = 3;
     public float damageSplashTime = .7f;
     public float phaseTwoPercentage = .9f;
     public float phaseThreePercentage = .5f;

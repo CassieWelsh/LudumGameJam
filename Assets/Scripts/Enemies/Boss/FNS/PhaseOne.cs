@@ -6,7 +6,7 @@ public class PhaseOne : StateMachineBehaviour
 {
     private int nextPhaseHp;
     private Boss _boss;
-    private int scoreValue;
+    public static int scoreValue;
     
     override public void OnStateEnter(Animator animator, AnimatorStateInfo stateInfo, int layerIndex)
     {
@@ -27,7 +27,7 @@ public class PhaseOne : StateMachineBehaviour
 
     override public void OnStateExit(Animator animator, AnimatorStateInfo stateInfo, int layerIndex)
     {
-        Score.S.increaseValue = scoreValue;
+        
     }
 
     // OnStateMove is called right after Animator.OnAnimatorMove()

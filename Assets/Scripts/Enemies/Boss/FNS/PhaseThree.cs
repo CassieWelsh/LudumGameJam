@@ -18,7 +18,7 @@ public class PhaseThree : StateMachineBehaviour
         if (Time.time > _coolDownTime)
         {
             _boss.Shoot(); 
-            _coolDownTime = Time.time + _boss.projectileCooldown / 2;
+            _coolDownTime = Time.time + _boss.projectileThirdPhaseCooldown;
         }
         
         if (_boss.hp <= 0) animator.SetTrigger("IsDead");
