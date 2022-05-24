@@ -4,6 +4,7 @@ using UnityEngine;
 
 public class PhaseOne : StateMachineBehaviour
 {
+    public AudioClip music;
     private int nextPhaseHp;
     private Boss _boss;
     public static int scoreValue;
@@ -14,6 +15,10 @@ public class PhaseOne : StateMachineBehaviour
         nextPhaseHp = (int) Mathf.Floor(_boss.maxHp * _boss.phaseTwoPercentage);
         scoreValue = Score.S.increaseValue; 
         Score.S.increaseValue = 0;
+
+        Main.S.audioSource.Stop();
+        Main.S.audioSource.clip = music;
+        Main.S.audioSource.Play();
     }
 
     override public void OnStateUpdate(Animator animator, AnimatorStateInfo stateInfo, int layerIndex)

@@ -20,6 +20,8 @@ public class Main : MonoBehaviour
     private EnemySpawner _enemySpawner;
     private GameState _previousGameState;
     private Scroll scroll;
+    public AudioSource audioSource;
+    public AudioClip music;
 
     public List<SpawnProperties> spawnProperties;
 
@@ -39,6 +41,7 @@ public class Main : MonoBehaviour
         _asteroidSpawner = GetComponent<AsteroidSpawner>();
         _enemySpawner = GetComponent<EnemySpawner>();
         _previousGameState = GameState.Null;
+        audioSource = GetComponent<AudioSource>();
     }
 
     void Update()
