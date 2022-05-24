@@ -9,6 +9,8 @@ public class Boss : MonoBehaviour
     public int damage = 1;
     public float topShootingSpeed = 5f;
     public float damageSplashTime = .7f;
+    public float phaseTwoPercentage = .9f;
+    public float phaseThreePercentage = .5f;
     [HideInInspector] public float invincibleTill;
     private Animator _animator;
     private List<SpriteRenderer> _sprites;
@@ -62,5 +64,10 @@ public class Boss : MonoBehaviour
         _top.transform.SetParent(null);
         _top.GetComponent<Rigidbody2D>().velocity = (Player.S.transform.position - _top.transform.position).normalized * topShootingSpeed;
         _sprites.Remove(_top.GetComponent<SpriteRenderer>());
+    }
+
+    public void Shoot()
+    {
+        
     }
 }
