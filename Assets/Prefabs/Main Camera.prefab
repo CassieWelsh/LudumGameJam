@@ -122,15 +122,24 @@ MonoBehaviour:
   - {fileID: -1673046120, guid: 819bc68c380bf264ab7f93b2654f8495, type: 3}
   - {fileID: 1963633662, guid: 819bc68c380bf264ab7f93b2654f8495, type: 3}
   spawnBeginningOffset: 1
-  spawnTimeout: 0.05
-  maxObjectsInScene: 200
+  spawnTimeout: 0.1
+  maxObjectsInScene: 100
   limitObjects: 1
   minFallSpeed: 2
   maxFallSpeed: 7
-  lastPointOffsetLimit: {x: 2, y: 10}
-  lifeTimeLimit: {x: 2, y: 10}
-  flyOffLimit: {x: -4, y: -6}
-  objectPrefabs: []
+  objectPrefabs:
+  - {fileID: 5667707202355784034, guid: 532051e48774b194f93f292e71116cbf, type: 3}
+  - {fileID: 5667707202355784034, guid: 532051e48774b194f93f292e71116cbf, type: 3}
+  - {fileID: 5667707202355784034, guid: 532051e48774b194f93f292e71116cbf, type: 3}
+  - {fileID: 5667707202355784034, guid: 532051e48774b194f93f292e71116cbf, type: 3}
+  - {fileID: 5667707202355784034, guid: a2cb9e365b7bdfd4baab3204eac01e53, type: 3}
+  - {fileID: 5667707202355784034, guid: a2cb9e365b7bdfd4baab3204eac01e53, type: 3}
+  - {fileID: 5667707202355784034, guid: 532051e48774b194f93f292e71116cbf, type: 3}
+  - {fileID: 5667707202355784034, guid: 8a2d949b61ee27441b5a3e0af7551714, type: 3}
+  - {fileID: 5667707202355784034, guid: 532051e48774b194f93f292e71116cbf, type: 3}
+  - {fileID: 5667707202355784034, guid: 532051e48774b194f93f292e71116cbf, type: 3}
+  - {fileID: 5667707202355784034, guid: 532051e48774b194f93f292e71116cbf, type: 3}
+  - {fileID: 5667707202355784034, guid: 532051e48774b194f93f292e71116cbf, type: 3}
 --- !u!114 &6108202161184379106
 MonoBehaviour:
   m_ObjectHideFlags: 0
@@ -143,6 +152,15 @@ MonoBehaviour:
   m_Script: {fileID: 11500000, guid: 409be352d444db1418bd0423d5e9d66f, type: 3}
   m_Name: 
   m_EditorClassIdentifier: 
+  spawnBeginningOffset: 0.75
+  spawnTimeout: 2
+  maxEnemiesInScene: 2
+  limitEnemies: 1
+  lastPointOffsetLimit: {x: 10, y: 10}
+  lifeTimeLimit: {x: 4, y: 10}
+  flyOffLimit: {x: -2, y: -6}
+  objectPrefabs:
+  - {fileID: 2747345661349983646, guid: 72b28b662ad6d0c4d8c51de4c17ea6c9, type: 3}
 --- !u!114 &2527357908322748524
 MonoBehaviour:
   m_ObjectHideFlags: 0
@@ -158,8 +176,50 @@ MonoBehaviour:
   deathText: {fileID: 0}
   bestScoreText: {fileID: 0}
   hpText: {fileID: 0}
+  currentGameState: 0
+  background: {fileID: 0}
   stats: {fileID: 0}
   deathScreen: {fileID: 0}
+  spawnProperties:
+  - state: 0
+    backgroundScrollSpeed: 5
+    aSpawnBeginningOffset: 1
+    aSpawnTimeout: 0.1
+    aMaxObjectsInScene: 100
+    aLimitObjects: 1
+    asteroidPrefabs:
+    - {fileID: 5667707202355784034, guid: 532051e48774b194f93f292e71116cbf, type: 3}
+    - {fileID: 5667707202355784034, guid: 532051e48774b194f93f292e71116cbf, type: 3}
+    - {fileID: 5667707202355784034, guid: 532051e48774b194f93f292e71116cbf, type: 3}
+    - {fileID: 5667707202355784034, guid: 532051e48774b194f93f292e71116cbf, type: 3}
+    - {fileID: 5667707202355784034, guid: 532051e48774b194f93f292e71116cbf, type: 3}
+    - {fileID: 5667707202355784034, guid: 532051e48774b194f93f292e71116cbf, type: 3}
+    - {fileID: 5667707202355784034, guid: 532051e48774b194f93f292e71116cbf, type: 3}
+    - {fileID: 5667707202355784034, guid: 532051e48774b194f93f292e71116cbf, type: 3}
+    - {fileID: 5667707202355784034, guid: 532051e48774b194f93f292e71116cbf, type: 3}
+    - {fileID: 5667707202355784034, guid: a2cb9e365b7bdfd4baab3204eac01e53, type: 3}
+    - {fileID: 5667707202355784034, guid: a2cb9e365b7bdfd4baab3204eac01e53, type: 3}
+    - {fileID: 5667707202355784034, guid: 8a2d949b61ee27441b5a3e0af7551714, type: 3}
+    eSpawnBeginningOffset: 0.75
+    eSpawnTimeout: 2
+    eMaxEnemiesInScene: 2
+    eLimitEnemies: 1
+    enemyPrefabs:
+    - {fileID: 2747345661349983646, guid: 72b28b662ad6d0c4d8c51de4c17ea6c9, type: 3}
+  - state: 1
+    backgroundScrollSpeed: 0.25
+    aSpawnBeginningOffset: 0
+    aSpawnTimeout: 0
+    aMaxObjectsInScene: 0
+    aLimitObjects: 1
+    asteroidPrefabs:
+    - {fileID: 5667707202355784034, guid: 532051e48774b194f93f292e71116cbf, type: 3}
+    eSpawnBeginningOffset: 0
+    eSpawnTimeout: 10
+    eMaxEnemiesInScene: 1
+    eLimitEnemies: 1
+    enemyPrefabs:
+    - {fileID: 2747345661349983646, guid: c3bc6c590ee2c074fbb4ff7ee94ce4f0, type: 3}
 --- !u!114 &7570512766112704408
 MonoBehaviour:
   m_ObjectHideFlags: 0
@@ -173,7 +233,7 @@ MonoBehaviour:
   m_Name: 
   m_EditorClassIdentifier: 
   score: 0
-  increaseValue: 0
+  increaseValue: 100
   increaseIntensity: 0.5
   text: {fileID: 0}
 --- !u!114 &1345501944

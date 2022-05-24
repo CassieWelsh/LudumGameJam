@@ -1,7 +1,9 @@
 using System.Collections.Generic;
 using UnityEngine;
 using TMPro;
+using UnityEngine.UIElements;
 using Utils;
+using Cursor = UnityEngine.Cursor;
 
 public class Main : MonoBehaviour
 {
@@ -9,12 +11,14 @@ public class Main : MonoBehaviour
 
     public TMP_Text deathText, bestScoreText, hpText;
     public GameState currentGameState;
+    public GameObject background;
     [SerializeField] private GameObject stats;
     [SerializeField] private GameObject deathScreen;
     private MouseCrosshair crosshair;
     private AsteroidSpawner _asteroidSpawner;
     private EnemySpawner _enemySpawner;
     private GameState _previousGameState;
+    private Scroll scroll;
 
     public List<SpawnProperties> spawnProperties;
 
@@ -27,6 +31,8 @@ public class Main : MonoBehaviour
         crosshair = GameObject.Find("Crosshair").GetComponent<MouseCrosshair>();
         stats.SetActive(true);
         deathScreen.SetActive(false);
+
+        scroll = background.GetComponent<Scroll>();
 
         currentGameState = GameState.Normal;
         _asteroidSpawner = GetComponent<AsteroidSpawner>();
@@ -87,6 +93,8 @@ public class Main : MonoBehaviour
         _enemySpawner.maxEnemiesInScene = properties.eMaxEnemiesInScene;
         _enemySpawner.limitEnemies = properties.eLimitEnemies;
         _enemySpawner.objectPrefabs = properties.enemyPrefabs;
+
+        scroll.scrollSpeed = properties.backgroundScrollSpeed;
     }
 
     private void UpdateHpText()
