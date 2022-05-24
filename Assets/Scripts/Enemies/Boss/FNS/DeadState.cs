@@ -8,10 +8,6 @@ public class DeadState : StateMachineBehaviour
     {
         animator.gameObject.GetComponentInChildren<SpriteRenderer>().color = Color.grey;
         Score.S.increaseValue = PhaseOne.scoreValue;
-
-        Main.S.audioSource.Stop();
-        Main.S.audioSource.clip = Main.S.music;
-        Main.S.audioSource.Play();
     }
     
     // OnStateUpdate is called on each Update frame between OnStateEnter and OnStateExit callbacks

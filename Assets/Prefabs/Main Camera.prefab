@@ -181,8 +181,6 @@ MonoBehaviour:
   bossScoreDivisor: 5000
   stats: {fileID: 0}
   deathScreen: {fileID: 0}
-  audioSource: {fileID: 0}
-  music: {fileID: 8300000, guid: 10f1aa4c103aedc4a8cd1c2fe11c6ef2, type: 3}
   spawnProperties:
   - state: 0
     backgroundScrollSpeed: 5
